@@ -499,10 +499,34 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `void ::= "void" !idChar white*
     //: reserved ::= `void
     //: `int ::= "int" !idChar white*
-    // reserved ::= `int
+    //: reserved ::= `int
     //: `while ::= "while" !idChar white*
-
+    //: reserved ::= `while
+    //: `if ::= "if" !idChar white*
+    //: reserved ::= `if
+    //: `for ::= "for" !idChar white*
+    //: reserved ::= `for
+    //: `break ::= "break" !idChar white*
+    //: reserved ::= `break
+    //: `this ::= "this" !idChar white*
+    //: reserved ::= `this
+    //: `false ::= "false" !idChar white*
+    //: reserved ::= `false
+    //: `true ::= "true" !idChar white*
+    //: reserved ::= `true
+    //: `super ::= "super" !idChar white*
+    //: reserved ::= `super
+    //: `null ::= "null" !idChar white*
+    //: reserved ::= `null
+    //: `return ::= "return" !idChar white*
+    //: reserved ::= `return
+    //: `instanceof ::= "instanceof" !idChar white*
+    //: reserved ::= `instanceof
+    //: `new ::= "new" !idChar white*
+    //: reserved ::= `new
     
+
+
     //special-token characters
     //: `!= ::= "!=" white*
     //: `+ ::= "+" !"+" white*
@@ -531,6 +555,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `++ ::= "++" white*
     //: `-- ::= "--" white*
     //: `/ ::= "/" white*
+
     
 
     // a numeric literal
@@ -607,17 +632,8 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // dummy definition.
     ////////////////////////////////////////////////////////////////
      
-    //: `if ::= !{255} {255} => void
-    //: `for ::= !{255} {255} => void
-    //: `break ::= !{255} {255} => void
-    //: `this ::= !{255} {255} => void
-    //: `false ::= !{255} {255} => void
-    //: `true ::= !{255} {255} => void
-    //: `super ::= !{255} {255} => void
-    //: `null ::= !{255} {255} => void
-    //: `return ::= !{255} {255} => void
-    //: `instanceof ::= !{255} {255} => void
-    //: `new ::= !{255} {255} => void
+    
+
     //: `abstract ::= !{255} {255} => void
     //: `assert ::= !{255} {255} => void
     //: `byte ::= !{255} {255} => void
