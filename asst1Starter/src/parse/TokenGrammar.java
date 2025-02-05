@@ -524,14 +524,76 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: reserved ::= `instanceof
     //: `new ::= "new" !idChar white*
     //: reserved ::= `new
-    //: `abstract ::= !{255} {255} => void
-    //: `assert ::= !{255} {255} => void
-    //: `byte ::= !{255} {255} => void
-    //: `case ::= !{255} {255} => void
-    //: `catch ::= !{255} {255} => void
-    //: `char ::= !{255} {255} => void
-    //: `const ::= !{255} {255} => void
-    //: `continue ::= !{255} {255} => void
+    //: `abstract ::= "abstract" !idChar white*
+    //: reserved ::= `abstract
+    //: `assert ::= "assert" !idChar white*
+    //: reserved ::= `assert !idChar white*
+    //: `byte ::= "byte" !idChar white*
+    //: reserved ::= `byte 
+    //: `case ::= "case" !idChar white*
+    //: reserved ::= `case
+    //: `catch ::= "catch" !idChar white*
+    //: reserved ::= `catch
+    //: `char ::= "char" !idChar white*
+    //: reserved ::= `char
+    //: `const ::= "const" !idChar white*
+    //: reserved ::= `const
+    //: `continue ::= "continue" !idChar white*
+    //: reserved ::= `continue
+    //: `default ::= "default" !idChar white*
+    //: reserved ::= `default
+    //: `do ::= "do" !idChar white*
+    //: reserved ::= `do
+    //: `double ::= "double" !idChar white*
+    //: reserved ::= `double
+    //: `enum ::= "enum" !idChar white*
+    //: reserved ::= `enum
+    //: `final ::= "final" !'l' !idChar white*
+    //: reserved ::= `final
+    //: `finally ::= "finally" !idChar white*
+    //: reserved ::= `finally
+    //: `float ::= "float" !idChar white*
+    //: reserved ::= `float
+    //: `goto ::= "goto" !idChar white*
+    //: reserved ::= `goto
+    //: `implements ::= "implements" !idChar white*
+    //: reserved ::= `implements
+    //: `import ::= "import" !idChar white*
+    //: reserved ::= `import
+    //: `interface ::= "interface" !idChar white*
+    //: reserved ::= `interface
+    //: `long ::= "long" !idChar white*
+    //: reserved ::= `long
+    //: `native ::= "native" !idChar white*
+    //: reserved ::= `native
+    //: `package ::= "package" !idChar white*
+    //: reserved ::= `package
+    //: `private ::= "private" !idChar white*
+    //: reserved ::= `private
+    //: `protected ::= "protected" !idChar white*
+    //: reserved ::= `protected 
+    //: `public ::= "public" !idChar white*
+    //: reserved ::= `public
+    //: `short ::= "short" !idChar white*
+    //: reserved ::= `short
+    //: `static ::= "static" !idChar white*
+    //: reserved ::= `static
+    //: `strictfp ::= "strictfp" !idChar white*
+    //: reserved ::= `strictfp
+    //: `switch ::= "switch" !idChar white*
+    //: reserved ::= `switch
+    //: `synchronized ::= "synchronized" !idChar white*
+    //: reserved ::= `synchronized
+    //: `throw ::= "throw" !"s" !idChar white*
+    //: reserved ::= `throw
+    //: `throws ::= "throws" !idChar white*
+    //: reserved ::= `throws
+    //: `transient ::= "transient" !idChar white*
+    //: reserved ::= `transient
+    //: `try ::= "try" !idChar white*
+    //: reserved ::= `try
+    //: `volatile ::= "volatile" !idChar white*
+    //: reserved ::= `volatile
     
 
 
@@ -591,9 +653,13 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
 
     //: ID ::= !{255} {255} => text
     //!reserved letter+ idChar* !idChar white* => 
-    // public List<Character> id(List<Character> s)
+    // public String id(char let, List<Character> s)
     // {
-    //     return s.toString();
+    //     String str = let + "";
+    //     for (char c:s) {
+    //         str = str + c;
+    //     }
+    //     return str;
     // }
 
     //: dq ::= '"' => void
@@ -604,7 +670,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     {
         String str = "";
         for (char c:printable) {
-            str = str + printable;
+            str = str + c;
         }
         return str;
     }
@@ -669,33 +735,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     
 
     
-    //: `default ::= !{255} {255} => void
-    //: `do ::= !{255} {255} => void
-    //: `double ::= !{255} {255} => void
-    //: `enum ::= !{255} {255} => void
-    //: `final ::= !{255} {255} => void
-    //: `finally ::= !{255} {255} => void
-    //: `float ::= !{255} {255} => void
-    //: `goto ::= !{255} {255} => void
-    //: `implements ::= !{255} {255} => void
-    //: `import ::= !{255} {255} => void
-    //: `interface ::= !{255} {255} => void
-    //: `long ::= !{255} {255} => void
-    //: `native ::= !{255} {255} => void
-    //: `package ::= !{255} {255} => void
-    //: `private ::= !{255} {255} => void
-    //: `protected ::= !{255} {255} => void
-    //: `public ::= !{255} {255} => void
-    //: `short ::= !{255} {255} => void
-    //: `static ::= !{255} {255} => void
-    //: `strictfp ::= !{255} {255} => void
-    //: `switch ::= !{255} {255} => void
-    //: `synchronized ::= !{255} {255} => void
-    //: `throw ::= !{255} {255} => void
-    //: `throws ::= !{255} {255} => void
-    //: `transient ::= !{255} {255} => void
-    //: `try ::= !{255} {255} => void
-    //: `volatile ::= !{255} {255} => void
     
 
 }

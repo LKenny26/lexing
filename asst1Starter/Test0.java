@@ -2,14 +2,10 @@ class +
     else
   !  
   !=   
+  // my comment bro
 234 567
-
+continue
 )
 ('a')
 
-"string"
-
-// this is a comment
-
-
-
+"hello"
