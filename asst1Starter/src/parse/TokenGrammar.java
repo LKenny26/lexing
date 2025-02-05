@@ -494,10 +494,18 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: reserved ::= `else
     //: `boolean ::= "boolean" !idChar white*
     //: reserved ::= `boolean
+    //: `extends ::= "extends" !idChar white*
+    //: reserved ::= `extends
+    //: `void ::= "void" !idChar white*
+    //: reserved ::= `void
+    //: `int ::= "int" !idChar white*
+    // reserved ::= `int
+    //: `while ::= "while" !idChar white*
 
+    
     //special-token characters
     //: `!= ::= "!=" white*
-    //: `+ ::= "+" white*
+    //: `+ ::= "+" !"+" white*
     //: `! ::= "!" !"=" white*
     //: `= ::= "=" !"=" white*
     //: `% ::= "%" white*
@@ -507,7 +515,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `) ::= ")" white*
     //: `{ ::= "{" white*
     //: `} ::= "}" white*
-    //: `- ::= "-" white*
+    //: `- ::= "-" !"-" white*
     //: `== ::= "==" white*
     //: `[ ::= "[" white*
     //: `] ::= "]" white*
@@ -517,6 +525,12 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `, ::= "," white*
     //: `> ::= ">" !"=" white*
     //: `>= ::= ">=" white*
+    //: `: ::= ":" white*
+    //: `. ::= "." white*
+    //: `; ::= ";" white*
+    //: `++ ::= "++" white*
+    //: `-- ::= "--" white*
+    //: `/ ::= "/" white*
     
 
     // a numeric literal
@@ -593,16 +607,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // dummy definition.
     ////////////////////////////////////////////////////////////////
      
-    //: `: ::= !{255} {255} => void
-    //: `. ::= !{255} {255} => void
-    //: `; ::= !{255} {255} => void
-    //: `++ ::= !{255} {255} => void
-    //: `-- ::= !{255} {255} => void
-    //: `/ ::= !{255} {255} => void
-    //: `extends ::= !{255} {255} => void
-    //: `void ::= !{255} {255} => void
-    //: `int ::= !{255} {255} => void
-    //: `while ::= !{255} {255} => void
     //: `if ::= !{255} {255} => void
     //: `for ::= !{255} {255} => void
     //: `break ::= !{255} {255} => void
