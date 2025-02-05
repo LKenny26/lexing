@@ -509,6 +509,8 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `} ::= "}" white*
     //: `- ::= "-" white*
     //: `== ::= "==" white*
+    //: `[ ::= "[" white*
+    //: `] ::= "]" white*
 
     // a numeric literal
     //: INT_LITERAL ::= # digit++ white* =>
@@ -583,9 +585,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // reduce the number of states of you remove (or comment out) the
     // dummy definition.
     ////////////////////////////////////////////////////////////////
-    
-    //: `[ ::= !{255} {255} => void
-    //: `] ::= !{255} {255} => void
+     
     //: `|| ::= !{255} {255} => void
     //: `< ::= !{255} {255} => void
     //: `<= ::= !{255} {255} => void
