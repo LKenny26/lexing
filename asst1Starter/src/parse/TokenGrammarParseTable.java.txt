@@ -206,104 +206,105 @@
 // 102: `= ::= "=" [white*] @void
 // 103: `% ::= "%" white* @void
 // 104: `% ::= "%" [white*] @void
-// 105: INT_LITERAL ::= [#] digit++ white* @convertToInt(int,List<Character>)=>int
-// 106: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
-// 107: sq ::= "'" @void
-// 108: CHARACTER_LITERAL ::= sq printable sq @makeChar(char)=>int
-// 109: idChar ::= letter @pass
-// 110: idChar ::= digit @pass
-// 111: idChar ::= "_" @pass
-// 112: letter ::= {"A".."Z" "a".."z"} @pass
-// 113: digit ::= {"0".."9"} @pass
-// 114: white ::= {9 12 " "} @void
-// 115: white ::= eol @void
-// 116: eol ::= {10} [registerNewline] @void
-// 117: eol ::= {13} {10} [registerNewline] @void
-// 118: eol ::= {13} !10 [registerNewline] @void
-// 119: printable ::= {" ".."~"} @pass
-// 120: `&& ::= !255 {255} @void
-// 121: `* ::= !255 {255} @void
-// 122: `( ::= !255 {255} @void
-// 123: `) ::= !255 {255} @void
-// 124: `{ ::= !255 {255} @void
-// 125: `} ::= !255 {255} @void
-// 126: `- ::= !255 {255} @void
-// 127: `== ::= !255 {255} @void
-// 128: `[ ::= !255 {255} @void
-// 129: `] ::= !255 {255} @void
-// 130: `|| ::= !255 {255} @void
-// 131: `< ::= !255 {255} @void
-// 132: `<= ::= !255 {255} @void
-// 133: `, ::= !255 {255} @void
-// 134: `> ::= !255 {255} @void
-// 135: `>= ::= !255 {255} @void
-// 136: `: ::= !255 {255} @void
-// 137: `. ::= !255 {255} @void
-// 138: `; ::= !255 {255} @void
-// 139: `++ ::= !255 {255} @void
-// 140: `-- ::= !255 {255} @void
-// 141: `/ ::= !255 {255} @void
-// 142: `extends ::= !255 {255} @void
-// 143: `void ::= !255 {255} @void
-// 144: `int ::= !255 {255} @void
-// 145: `while ::= !255 {255} @void
-// 146: `if ::= !255 {255} @void
-// 147: `for ::= !255 {255} @void
-// 148: `break ::= !255 {255} @void
-// 149: `this ::= !255 {255} @void
-// 150: `false ::= !255 {255} @void
-// 151: `true ::= !255 {255} @void
-// 152: `super ::= !255 {255} @void
-// 153: `null ::= !255 {255} @void
-// 154: `return ::= !255 {255} @void
-// 155: `instanceof ::= !255 {255} @void
-// 156: `new ::= !255 {255} @void
-// 157: `abstract ::= !255 {255} @void
-// 158: `assert ::= !255 {255} @void
-// 159: `byte ::= !255 {255} @void
-// 160: `case ::= !255 {255} @void
-// 161: `catch ::= !255 {255} @void
-// 162: `char ::= !255 {255} @void
-// 163: `const ::= !255 {255} @void
-// 164: `continue ::= !255 {255} @void
-// 165: `default ::= !255 {255} @void
-// 166: `do ::= !255 {255} @void
-// 167: `double ::= !255 {255} @void
-// 168: `enum ::= !255 {255} @void
-// 169: `final ::= !255 {255} @void
-// 170: `finally ::= !255 {255} @void
-// 171: `float ::= !255 {255} @void
-// 172: `goto ::= !255 {255} @void
-// 173: `implements ::= !255 {255} @void
-// 174: `import ::= !255 {255} @void
-// 175: `interface ::= !255 {255} @void
-// 176: `long ::= !255 {255} @void
-// 177: `native ::= !255 {255} @void
-// 178: `package ::= !255 {255} @void
-// 179: `private ::= !255 {255} @void
-// 180: `protected ::= !255 {255} @void
-// 181: `public ::= !255 {255} @void
-// 182: `short ::= !255 {255} @void
-// 183: `static ::= !255 {255} @void
-// 184: `strictfp ::= !255 {255} @void
-// 185: `switch ::= !255 {255} @void
-// 186: `synchronized ::= !255 {255} @void
-// 187: `throw ::= !255 {255} @void
-// 188: `throws ::= !255 {255} @void
-// 189: `transient ::= !255 {255} @void
-// 190: `try ::= !255 {255} @void
-// 191: `volatile ::= !255 {255} @void
-// 192: ID ::= !255 {255} @text
-// 193: STRING_LITERAL ::= !255 {255} @text
-// 194: CHARACTER_LITERAL ::= !255 {255} @return0(char)=>int
-// 195: token* ::= token* token @append
-// 196: token* ::= [token*] token @append
-// 197: digit++ ::= digit+ !digit @pass
-// 198: white* ::= white* white @append
-// 199: white* ::= [white*] white @append
-// 200: digit+ ::= digit @singleList
-// 201: digit+ ::= digit+ digit @append
-// 202: $$0 ::= token* @pass
+// 105: `&& ::= "&" "&" white* @void
+// 106: `&& ::= "&" "&" [white*] @void
+// 107: INT_LITERAL ::= [#] digit++ white* @convertToInt(int,List<Character>)=>int
+// 108: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
+// 109: sq ::= "'" @void
+// 110: CHARACTER_LITERAL ::= sq printable sq @makeChar(char)=>int
+// 111: idChar ::= letter @pass
+// 112: idChar ::= digit @pass
+// 113: idChar ::= "_" @pass
+// 114: letter ::= {"A".."Z" "a".."z"} @pass
+// 115: digit ::= {"0".."9"} @pass
+// 116: white ::= {9 12 " "} @void
+// 117: white ::= eol @void
+// 118: eol ::= {10} [registerNewline] @void
+// 119: eol ::= {13} {10} [registerNewline] @void
+// 120: eol ::= {13} !10 [registerNewline] @void
+// 121: printable ::= {" ".."~"} @pass
+// 122: `* ::= !255 {255} @void
+// 123: `( ::= !255 {255} @void
+// 124: `) ::= !255 {255} @void
+// 125: `{ ::= !255 {255} @void
+// 126: `} ::= !255 {255} @void
+// 127: `- ::= !255 {255} @void
+// 128: `== ::= !255 {255} @void
+// 129: `[ ::= !255 {255} @void
+// 130: `] ::= !255 {255} @void
+// 131: `|| ::= !255 {255} @void
+// 132: `< ::= !255 {255} @void
+// 133: `<= ::= !255 {255} @void
+// 134: `, ::= !255 {255} @void
+// 135: `> ::= !255 {255} @void
+// 136: `>= ::= !255 {255} @void
+// 137: `: ::= !255 {255} @void
+// 138: `. ::= !255 {255} @void
+// 139: `; ::= !255 {255} @void
+// 140: `++ ::= !255 {255} @void
+// 141: `-- ::= !255 {255} @void
+// 142: `/ ::= !255 {255} @void
+// 143: `extends ::= !255 {255} @void
+// 144: `void ::= !255 {255} @void
+// 145: `int ::= !255 {255} @void
+// 146: `while ::= !255 {255} @void
+// 147: `if ::= !255 {255} @void
+// 148: `for ::= !255 {255} @void
+// 149: `break ::= !255 {255} @void
+// 150: `this ::= !255 {255} @void
+// 151: `false ::= !255 {255} @void
+// 152: `true ::= !255 {255} @void
+// 153: `super ::= !255 {255} @void
+// 154: `null ::= !255 {255} @void
+// 155: `return ::= !255 {255} @void
+// 156: `instanceof ::= !255 {255} @void
+// 157: `new ::= !255 {255} @void
+// 158: `abstract ::= !255 {255} @void
+// 159: `assert ::= !255 {255} @void
+// 160: `byte ::= !255 {255} @void
+// 161: `case ::= !255 {255} @void
+// 162: `catch ::= !255 {255} @void
+// 163: `char ::= !255 {255} @void
+// 164: `const ::= !255 {255} @void
+// 165: `continue ::= !255 {255} @void
+// 166: `default ::= !255 {255} @void
+// 167: `do ::= !255 {255} @void
+// 168: `double ::= !255 {255} @void
+// 169: `enum ::= !255 {255} @void
+// 170: `final ::= !255 {255} @void
+// 171: `finally ::= !255 {255} @void
+// 172: `float ::= !255 {255} @void
+// 173: `goto ::= !255 {255} @void
+// 174: `implements ::= !255 {255} @void
+// 175: `import ::= !255 {255} @void
+// 176: `interface ::= !255 {255} @void
+// 177: `long ::= !255 {255} @void
+// 178: `native ::= !255 {255} @void
+// 179: `package ::= !255 {255} @void
+// 180: `private ::= !255 {255} @void
+// 181: `protected ::= !255 {255} @void
+// 182: `public ::= !255 {255} @void
+// 183: `short ::= !255 {255} @void
+// 184: `static ::= !255 {255} @void
+// 185: `strictfp ::= !255 {255} @void
+// 186: `switch ::= !255 {255} @void
+// 187: `synchronized ::= !255 {255} @void
+// 188: `throw ::= !255 {255} @void
+// 189: `throws ::= !255 {255} @void
+// 190: `transient ::= !255 {255} @void
+// 191: `try ::= !255 {255} @void
+// 192: `volatile ::= !255 {255} @void
+// 193: ID ::= !255 {255} @text
+// 194: STRING_LITERAL ::= !255 {255} @text
+// 195: CHARACTER_LITERAL ::= !255 {255} @return0(char)=>int
+// 196: token* ::= token* token @append
+// 197: token* ::= [token*] token @append
+// 198: digit++ ::= digit+ !digit @pass
+// 199: white* ::= white* white @append
+// 200: white* ::= [white*] white @append
+// 201: digit+ ::= digit @singleList
+// 202: digit+ ::= digit+ digit @append
+// 203: $$0 ::= token* @pass
 // ============productions (after subsumptions)=============
 // 0: $$start ::= start @pass
 // 1: $$start ::= [start] @pass
@@ -410,104 +411,105 @@
 // 102: `= ::= "=" [white*] @void
 // 103: `% ::= "%" white* @void
 // 104: `% ::= "%" [white*] @void
-// 105: INT_LITERAL ::= [#] digit++ white* @convertToInt(int,List<Character>)=>int
-// 106: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
-// 107: sq ::= "'" @void
-// 108: CHARACTER_LITERAL ::= sq printable sq @makeChar(char)=>int
-// 109: idChar ::= letter @pass
-// 110: idChar ::= digit @pass
-// 111: idChar ::= "_" @pass
-// 112: letter ::= {"A".."Z" "a".."z"} @pass
-// 113: digit ::= {"0".."9"} @pass
-// 114: white ::= {9 12 " "} @void
-// 115: white ::= eol @void
-// 116: eol ::= {10} [registerNewline] @void
-// 117: eol ::= {13} {10} [registerNewline] @void
-// 118: eol ::= {13} !10 [registerNewline] @void
-// 119: printable ::= {" ".."~"} @pass
-// 120: `&& ::= !255 {255} @void
-// 121: `* ::= !255 {255} @void
-// 122: `( ::= !255 {255} @void
-// 123: `) ::= !255 {255} @void
-// 124: `{ ::= !255 {255} @void
-// 125: `} ::= !255 {255} @void
-// 126: `- ::= !255 {255} @void
-// 127: `== ::= !255 {255} @void
-// 128: `[ ::= !255 {255} @void
-// 129: `] ::= !255 {255} @void
-// 130: `|| ::= !255 {255} @void
-// 131: `< ::= !255 {255} @void
-// 132: `<= ::= !255 {255} @void
-// 133: `, ::= !255 {255} @void
-// 134: `> ::= !255 {255} @void
-// 135: `>= ::= !255 {255} @void
-// 136: `: ::= !255 {255} @void
-// 137: `. ::= !255 {255} @void
-// 138: `; ::= !255 {255} @void
-// 139: `++ ::= !255 {255} @void
-// 140: `-- ::= !255 {255} @void
-// 141: `/ ::= !255 {255} @void
-// 142: `extends ::= !255 {255} @void
-// 143: `void ::= !255 {255} @void
-// 144: `int ::= !255 {255} @void
-// 145: `while ::= !255 {255} @void
-// 146: `if ::= !255 {255} @void
-// 147: `for ::= !255 {255} @void
-// 148: `break ::= !255 {255} @void
-// 149: `this ::= !255 {255} @void
-// 150: `false ::= !255 {255} @void
-// 151: `true ::= !255 {255} @void
-// 152: `super ::= !255 {255} @void
-// 153: `null ::= !255 {255} @void
-// 154: `return ::= !255 {255} @void
-// 155: `instanceof ::= !255 {255} @void
-// 156: `new ::= !255 {255} @void
-// 157: `abstract ::= !255 {255} @void
-// 158: `assert ::= !255 {255} @void
-// 159: `byte ::= !255 {255} @void
-// 160: `case ::= !255 {255} @void
-// 161: `catch ::= !255 {255} @void
-// 162: `char ::= !255 {255} @void
-// 163: `const ::= !255 {255} @void
-// 164: `continue ::= !255 {255} @void
-// 165: `default ::= !255 {255} @void
-// 166: `do ::= !255 {255} @void
-// 167: `double ::= !255 {255} @void
-// 168: `enum ::= !255 {255} @void
-// 169: `final ::= !255 {255} @void
-// 170: `finally ::= !255 {255} @void
-// 171: `float ::= !255 {255} @void
-// 172: `goto ::= !255 {255} @void
-// 173: `implements ::= !255 {255} @void
-// 174: `import ::= !255 {255} @void
-// 175: `interface ::= !255 {255} @void
-// 176: `long ::= !255 {255} @void
-// 177: `native ::= !255 {255} @void
-// 178: `package ::= !255 {255} @void
-// 179: `private ::= !255 {255} @void
-// 180: `protected ::= !255 {255} @void
-// 181: `public ::= !255 {255} @void
-// 182: `short ::= !255 {255} @void
-// 183: `static ::= !255 {255} @void
-// 184: `strictfp ::= !255 {255} @void
-// 185: `switch ::= !255 {255} @void
-// 186: `synchronized ::= !255 {255} @void
-// 187: `throw ::= !255 {255} @void
-// 188: `throws ::= !255 {255} @void
-// 189: `transient ::= !255 {255} @void
-// 190: `try ::= !255 {255} @void
-// 191: `volatile ::= !255 {255} @void
-// 192: ID ::= !255 {255} @text
-// 193: STRING_LITERAL ::= !255 {255} @text
-// 194: CHARACTER_LITERAL ::= !255 {255} @return0(char)=>int
-// 195: token* ::= token* token @append
-// 196: token* ::= [token*] token @append
-// 197: digit++ ::= digit+ !digit @pass
-// 198: white* ::= white* white @append
-// 199: white* ::= [white*] white @append
-// 200: digit+ ::= digit @singleList
-// 201: digit+ ::= digit+ digit @append
-// 202: $$0 ::= token* @pass
+// 105: `&& ::= "&" "&" white* @void
+// 106: `&& ::= "&" "&" [white*] @void
+// 107: INT_LITERAL ::= [#] digit++ white* @convertToInt(int,List<Character>)=>int
+// 108: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
+// 109: sq ::= "'" @void
+// 110: CHARACTER_LITERAL ::= sq printable sq @makeChar(char)=>int
+// 111: idChar ::= letter @pass
+// 112: idChar ::= digit @pass
+// 113: idChar ::= "_" @pass
+// 114: letter ::= {"A".."Z" "a".."z"} @pass
+// 115: digit ::= {"0".."9"} @pass
+// 116: white ::= {9 12 " "} @void
+// 117: white ::= eol @void
+// 118: eol ::= {10} [registerNewline] @void
+// 119: eol ::= {13} {10} [registerNewline] @void
+// 120: eol ::= {13} !10 [registerNewline] @void
+// 121: printable ::= {" ".."~"} @pass
+// 122: `* ::= !255 {255} @void
+// 123: `( ::= !255 {255} @void
+// 124: `) ::= !255 {255} @void
+// 125: `{ ::= !255 {255} @void
+// 126: `} ::= !255 {255} @void
+// 127: `- ::= !255 {255} @void
+// 128: `== ::= !255 {255} @void
+// 129: `[ ::= !255 {255} @void
+// 130: `] ::= !255 {255} @void
+// 131: `|| ::= !255 {255} @void
+// 132: `< ::= !255 {255} @void
+// 133: `<= ::= !255 {255} @void
+// 134: `, ::= !255 {255} @void
+// 135: `> ::= !255 {255} @void
+// 136: `>= ::= !255 {255} @void
+// 137: `: ::= !255 {255} @void
+// 138: `. ::= !255 {255} @void
+// 139: `; ::= !255 {255} @void
+// 140: `++ ::= !255 {255} @void
+// 141: `-- ::= !255 {255} @void
+// 142: `/ ::= !255 {255} @void
+// 143: `extends ::= !255 {255} @void
+// 144: `void ::= !255 {255} @void
+// 145: `int ::= !255 {255} @void
+// 146: `while ::= !255 {255} @void
+// 147: `if ::= !255 {255} @void
+// 148: `for ::= !255 {255} @void
+// 149: `break ::= !255 {255} @void
+// 150: `this ::= !255 {255} @void
+// 151: `false ::= !255 {255} @void
+// 152: `true ::= !255 {255} @void
+// 153: `super ::= !255 {255} @void
+// 154: `null ::= !255 {255} @void
+// 155: `return ::= !255 {255} @void
+// 156: `instanceof ::= !255 {255} @void
+// 157: `new ::= !255 {255} @void
+// 158: `abstract ::= !255 {255} @void
+// 159: `assert ::= !255 {255} @void
+// 160: `byte ::= !255 {255} @void
+// 161: `case ::= !255 {255} @void
+// 162: `catch ::= !255 {255} @void
+// 163: `char ::= !255 {255} @void
+// 164: `const ::= !255 {255} @void
+// 165: `continue ::= !255 {255} @void
+// 166: `default ::= !255 {255} @void
+// 167: `do ::= !255 {255} @void
+// 168: `double ::= !255 {255} @void
+// 169: `enum ::= !255 {255} @void
+// 170: `final ::= !255 {255} @void
+// 171: `finally ::= !255 {255} @void
+// 172: `float ::= !255 {255} @void
+// 173: `goto ::= !255 {255} @void
+// 174: `implements ::= !255 {255} @void
+// 175: `import ::= !255 {255} @void
+// 176: `interface ::= !255 {255} @void
+// 177: `long ::= !255 {255} @void
+// 178: `native ::= !255 {255} @void
+// 179: `package ::= !255 {255} @void
+// 180: `private ::= !255 {255} @void
+// 181: `protected ::= !255 {255} @void
+// 182: `public ::= !255 {255} @void
+// 183: `short ::= !255 {255} @void
+// 184: `static ::= !255 {255} @void
+// 185: `strictfp ::= !255 {255} @void
+// 186: `switch ::= !255 {255} @void
+// 187: `synchronized ::= !255 {255} @void
+// 188: `throw ::= !255 {255} @void
+// 189: `throws ::= !255 {255} @void
+// 190: `transient ::= !255 {255} @void
+// 191: `try ::= !255 {255} @void
+// 192: `volatile ::= !255 {255} @void
+// 193: ID ::= !255 {255} @text
+// 194: STRING_LITERAL ::= !255 {255} @text
+// 195: CHARACTER_LITERAL ::= !255 {255} @return0(char)=>int
+// 196: token* ::= token* token @append
+// 197: token* ::= [token*] token @append
+// 198: digit++ ::= digit+ !digit @pass
+// 199: white* ::= white* white @append
+// 200: white* ::= [white*] white @append
+// 201: digit+ ::= digit @singleList
+// 202: digit+ ::= digit+ digit @append
+// 203: $$0 ::= token* @pass
 // ============productions (after unit elimination)=============
 // 0: $$start ::= start @pass
 // 1: $$start ::= [start] @pass
@@ -614,104 +616,105 @@
 // 102: `= ::= "=" [white*] @void
 // 103: `% ::= "%" white* @void
 // 104: `% ::= "%" [white*] @void
-// 105: INT_LITERAL ::= [#] digit++ white* @convertToInt(int,List<Character>)=>int
-// 106: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
-// 107: sq ::= "'" @void
-// 108: CHARACTER_LITERAL ::= sq printable sq @makeChar(char)=>int
-// 109: idChar ::= letter @pass
-// 110: idChar ::= digit @pass
-// 111: idChar ::= "_" @pass
-// 112: letter ::= {"A".."Z" "a".."z"} @pass
-// 113: digit ::= {"0".."9"} @pass
-// 114: white ::= {9 12 " "} @void
-// 115: white ::= eol @void
-// 116: eol ::= {10} [registerNewline] @void
-// 117: eol ::= {13} {10} [registerNewline] @void
-// 118: eol ::= {13} !10 [registerNewline] @void
-// 119: printable ::= {" ".."~"} @pass
-// 120: `&& ::= !255 {255} @void
-// 121: `* ::= !255 {255} @void
-// 122: `( ::= !255 {255} @void
-// 123: `) ::= !255 {255} @void
-// 124: `{ ::= !255 {255} @void
-// 125: `} ::= !255 {255} @void
-// 126: `- ::= !255 {255} @void
-// 127: `== ::= !255 {255} @void
-// 128: `[ ::= !255 {255} @void
-// 129: `] ::= !255 {255} @void
-// 130: `|| ::= !255 {255} @void
-// 131: `< ::= !255 {255} @void
-// 132: `<= ::= !255 {255} @void
-// 133: `, ::= !255 {255} @void
-// 134: `> ::= !255 {255} @void
-// 135: `>= ::= !255 {255} @void
-// 136: `: ::= !255 {255} @void
-// 137: `. ::= !255 {255} @void
-// 138: `; ::= !255 {255} @void
-// 139: `++ ::= !255 {255} @void
-// 140: `-- ::= !255 {255} @void
-// 141: `/ ::= !255 {255} @void
-// 142: `extends ::= !255 {255} @void
-// 143: `void ::= !255 {255} @void
-// 144: `int ::= !255 {255} @void
-// 145: `while ::= !255 {255} @void
-// 146: `if ::= !255 {255} @void
-// 147: `for ::= !255 {255} @void
-// 148: `break ::= !255 {255} @void
-// 149: `this ::= !255 {255} @void
-// 150: `false ::= !255 {255} @void
-// 151: `true ::= !255 {255} @void
-// 152: `super ::= !255 {255} @void
-// 153: `null ::= !255 {255} @void
-// 154: `return ::= !255 {255} @void
-// 155: `instanceof ::= !255 {255} @void
-// 156: `new ::= !255 {255} @void
-// 157: `abstract ::= !255 {255} @void
-// 158: `assert ::= !255 {255} @void
-// 159: `byte ::= !255 {255} @void
-// 160: `case ::= !255 {255} @void
-// 161: `catch ::= !255 {255} @void
-// 162: `char ::= !255 {255} @void
-// 163: `const ::= !255 {255} @void
-// 164: `continue ::= !255 {255} @void
-// 165: `default ::= !255 {255} @void
-// 166: `do ::= !255 {255} @void
-// 167: `double ::= !255 {255} @void
-// 168: `enum ::= !255 {255} @void
-// 169: `final ::= !255 {255} @void
-// 170: `finally ::= !255 {255} @void
-// 171: `float ::= !255 {255} @void
-// 172: `goto ::= !255 {255} @void
-// 173: `implements ::= !255 {255} @void
-// 174: `import ::= !255 {255} @void
-// 175: `interface ::= !255 {255} @void
-// 176: `long ::= !255 {255} @void
-// 177: `native ::= !255 {255} @void
-// 178: `package ::= !255 {255} @void
-// 179: `private ::= !255 {255} @void
-// 180: `protected ::= !255 {255} @void
-// 181: `public ::= !255 {255} @void
-// 182: `short ::= !255 {255} @void
-// 183: `static ::= !255 {255} @void
-// 184: `strictfp ::= !255 {255} @void
-// 185: `switch ::= !255 {255} @void
-// 186: `synchronized ::= !255 {255} @void
-// 187: `throw ::= !255 {255} @void
-// 188: `throws ::= !255 {255} @void
-// 189: `transient ::= !255 {255} @void
-// 190: `try ::= !255 {255} @void
-// 191: `volatile ::= !255 {255} @void
-// 192: ID ::= !255 {255} @text
-// 193: STRING_LITERAL ::= !255 {255} @text
-// 194: CHARACTER_LITERAL ::= !255 {255} @return0(char)=>int
-// 195: token* ::= token* token @append
-// 196: token* ::= [token*] token @append
-// 197: digit++ ::= digit+ !digit @pass
-// 198: white* ::= white* white @append
-// 199: white* ::= [white*] white @append
-// 200: digit+ ::= digit @singleList
-// 201: digit+ ::= digit+ digit @append
-// 202: $$0 ::= token* @pass
+// 105: `&& ::= "&" "&" white* @void
+// 106: `&& ::= "&" "&" [white*] @void
+// 107: INT_LITERAL ::= [#] digit++ white* @convertToInt(int,List<Character>)=>int
+// 108: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
+// 109: sq ::= "'" @void
+// 110: CHARACTER_LITERAL ::= sq printable sq @makeChar(char)=>int
+// 111: idChar ::= letter @pass
+// 112: idChar ::= digit @pass
+// 113: idChar ::= "_" @pass
+// 114: letter ::= {"A".."Z" "a".."z"} @pass
+// 115: digit ::= {"0".."9"} @pass
+// 116: white ::= {9 12 " "} @void
+// 117: white ::= eol @void
+// 118: eol ::= {10} [registerNewline] @void
+// 119: eol ::= {13} {10} [registerNewline] @void
+// 120: eol ::= {13} !10 [registerNewline] @void
+// 121: printable ::= {" ".."~"} @pass
+// 122: `* ::= !255 {255} @void
+// 123: `( ::= !255 {255} @void
+// 124: `) ::= !255 {255} @void
+// 125: `{ ::= !255 {255} @void
+// 126: `} ::= !255 {255} @void
+// 127: `- ::= !255 {255} @void
+// 128: `== ::= !255 {255} @void
+// 129: `[ ::= !255 {255} @void
+// 130: `] ::= !255 {255} @void
+// 131: `|| ::= !255 {255} @void
+// 132: `< ::= !255 {255} @void
+// 133: `<= ::= !255 {255} @void
+// 134: `, ::= !255 {255} @void
+// 135: `> ::= !255 {255} @void
+// 136: `>= ::= !255 {255} @void
+// 137: `: ::= !255 {255} @void
+// 138: `. ::= !255 {255} @void
+// 139: `; ::= !255 {255} @void
+// 140: `++ ::= !255 {255} @void
+// 141: `-- ::= !255 {255} @void
+// 142: `/ ::= !255 {255} @void
+// 143: `extends ::= !255 {255} @void
+// 144: `void ::= !255 {255} @void
+// 145: `int ::= !255 {255} @void
+// 146: `while ::= !255 {255} @void
+// 147: `if ::= !255 {255} @void
+// 148: `for ::= !255 {255} @void
+// 149: `break ::= !255 {255} @void
+// 150: `this ::= !255 {255} @void
+// 151: `false ::= !255 {255} @void
+// 152: `true ::= !255 {255} @void
+// 153: `super ::= !255 {255} @void
+// 154: `null ::= !255 {255} @void
+// 155: `return ::= !255 {255} @void
+// 156: `instanceof ::= !255 {255} @void
+// 157: `new ::= !255 {255} @void
+// 158: `abstract ::= !255 {255} @void
+// 159: `assert ::= !255 {255} @void
+// 160: `byte ::= !255 {255} @void
+// 161: `case ::= !255 {255} @void
+// 162: `catch ::= !255 {255} @void
+// 163: `char ::= !255 {255} @void
+// 164: `const ::= !255 {255} @void
+// 165: `continue ::= !255 {255} @void
+// 166: `default ::= !255 {255} @void
+// 167: `do ::= !255 {255} @void
+// 168: `double ::= !255 {255} @void
+// 169: `enum ::= !255 {255} @void
+// 170: `final ::= !255 {255} @void
+// 171: `finally ::= !255 {255} @void
+// 172: `float ::= !255 {255} @void
+// 173: `goto ::= !255 {255} @void
+// 174: `implements ::= !255 {255} @void
+// 175: `import ::= !255 {255} @void
+// 176: `interface ::= !255 {255} @void
+// 177: `long ::= !255 {255} @void
+// 178: `native ::= !255 {255} @void
+// 179: `package ::= !255 {255} @void
+// 180: `private ::= !255 {255} @void
+// 181: `protected ::= !255 {255} @void
+// 182: `public ::= !255 {255} @void
+// 183: `short ::= !255 {255} @void
+// 184: `static ::= !255 {255} @void
+// 185: `strictfp ::= !255 {255} @void
+// 186: `switch ::= !255 {255} @void
+// 187: `synchronized ::= !255 {255} @void
+// 188: `throw ::= !255 {255} @void
+// 189: `throws ::= !255 {255} @void
+// 190: `transient ::= !255 {255} @void
+// 191: `try ::= !255 {255} @void
+// 192: `volatile ::= !255 {255} @void
+// 193: ID ::= !255 {255} @text
+// 194: STRING_LITERAL ::= !255 {255} @text
+// 195: CHARACTER_LITERAL ::= !255 {255} @return0(char)=>int
+// 196: token* ::= token* token @append
+// 197: token* ::= [token*] token @append
+// 198: digit++ ::= digit+ !digit @pass
+// 199: white* ::= white* white @append
+// 200: white* ::= [white*] white @append
+// 201: digit+ ::= digit @singleList
+// 202: digit+ ::= digit+ digit @append
+// 203: $$0 ::= token* @pass
 // =================symbols=======================
 // 0: $$start
 // 1: start
@@ -815,25 +818,26 @@
 // 99: "="
 // 100: "+"
 // 101: "%"
-// 102: digit++
-// 103: sq
-// 104: "'"
-// 105: printable
-// 106: letter
-// 107: digit
-// 108: "_"
-// 109: {"A".."Z" "d" "f".."k" "m" "p".."r" "t".."z"}
-// 110: {"0".."9"}
-// 111: white
-// 112: {9 12}
-// 113: " "
-// 114: eol
-// 115: {10}
-// 116: {13}
-// 117: {'"'.."$" "&" "(".."*" ",".."/" ":".."<" ">".."@" "[".."^" "`" "{".."~"}
-// 118: {255}
-// 119: token*
-// 120: digit+
+// 102: "&"
+// 103: digit++
+// 104: sq
+// 105: "'"
+// 106: printable
+// 107: letter
+// 108: digit
+// 109: "_"
+// 110: {"A".."Z" "d" "f".."k" "m" "p".."r" "t".."z"}
+// 111: {"0".."9"}
+// 112: white
+// 113: {9 12}
+// 114: " "
+// 115: eol
+// 116: {10}
+// 117: {13}
+// 118: {'"'.."$" "(".."*" ",".."/" ":".."<" ">".."@" "[".."^" "`" "{".."~"}
+// 119: {255}
+// 120: token*
+// 121: digit+
 **** STATE 0 ****
     $$start ::= <%> start // $
     $$start ::= [start] <%> // $
@@ -857,6 +861,10 @@
     `% ::= <%> "%" [white*] // token
     `% ::= <%> "%" white* // $
     `% ::= <%> "%" white* // token
+    `&& ::= <%> "&" "&" [white*] // $
+    `&& ::= <%> "&" "&" [white*] // token
+    `&& ::= <%> "&" "&" white* // $
+    `&& ::= <%> "&" "&" white* // token
     `+ ::= <%> "+" [white*] // $
     `+ ::= <%> "+" [white*] // token
     `+ ::= <%> "+" white* // $
@@ -1089,114 +1097,115 @@
     white* ::= [white*] <%> white // $
     white* ::= [white*] <%> white // $$0
     white* ::= [white*] <%> white // white
-        `null => shift: 143
-        `throw => shift: 64
+        `null => shift: 146
+        `throw => shift: 65
         `instanceof => shift: 34
-        `int => shift: 120
-        `switch => shift: 72
-        `extends => shift: 112
+        `int => shift: 122
+        `switch => shift: 73
+        `extends => shift: 114
         `long => shift: 29
-        `if => shift: 41
+        `if => shift: 42
         `try => shift: 4
-        `> => shift: 44
+        `> => shift: 45
         "!" => shift: 24
-        `= => shift: 88
+        `= => shift: 90
         `< => shift: 19
-        `; => shift: 56
+        `; => shift: 57
         `: => shift: 31
-        `volatile => shift: 122
+        `volatile => shift: 124
         `public => shift: 20
         INT_LITERAL => shift: 13
-        `protected => shift: 107
-        `false => shift: 165
-        `transient => shift: 160
-        `final => shift: 65
-        `/ => shift: 77
-        `. => shift: 52
+        `protected => shift: 109
+        `false => shift: 168
+        `transient => shift: 163
+        `final => shift: 66
+        `/ => shift: 78
+        `. => shift: 53
         `- => shift: 22
-        `strictfp => shift: 141
-        `, => shift: 68
-        `+ => shift: 130
-        `* => shift: 47
-        `) => shift: 127
+        `strictfp => shift: 144
+        `, => shift: 69
+        `+ => shift: 132
+        `* => shift: 48
+        `) => shift: 129
         {"0".."9"} => shift: 18
-        `( => shift: 50
-        `% => shift: 90
-        `boolean => shift: 51
-        `! => shift: 137
-        `return => shift: 55
-        `break => shift: 97
-        " " => shift: 81
-        `for => shift: 131
-        `implements => shift: 157
+        `( => shift: 51
+        `% => shift: 92
+        `boolean => shift: 52
+        `! => shift: 140
+        `return => shift: 56
+        `break => shift: 99
+        " " => shift: 82
+        `for => shift: 133
+        `implements => shift: 160
         `new => shift: 5
-        `assert => shift: 57
-        white => shift: 144
+        `assert => shift: 58
+        white => shift: 147
         `true => shift: 11
-        start => shift: 93
-        `native => shift: 70
-        "'" => shift: 78
+        start => shift: 95
+        `native => shift: 71
+        "'" => shift: 79
         $ => reduce: 1
-        `this => shift: 113
-        `class => shift: 148
-        `void => shift: 159
-        CHARACTER_LITERAL => shift: 110
-        `char => shift: 168
-        `goto => shift: 42
-        `while => shift: 89
+        `this => shift: 115
+        `class => shift: 151
+        `void => shift: 162
+        CHARACTER_LITERAL => shift: 112
+        `char => shift: 171
+        `goto => shift: 43
+        `while => shift: 91
         `>= => shift: 28
         digit++ => shift: 30
-        `&& => shift: 67
+        `&& => shift: 68
         eol => shift: 8
-        `package => shift: 45
-        {9 12} => shift: 81
-        `import => shift: 170
+        "&" => shift: 38
+        `package => shift: 46
+        {9 12} => shift: 82
+        `import => shift: 173
         `throws => shift: 26
-        `else => shift: 169
-        "e" => shift: 115
+        `else => shift: 172
+        "e" => shift: 117
         `== => shift: 27
-        `-- => shift: 46
-        "=" => shift: 146
-        sq => shift: 111
-        `interface => shift: 40
-        "%" => shift: 118
-        {13} => shift: 73
-        token* => shift: 83
-        `do => shift: 87
-        `default => shift: 74
-        digit => shift: 99
-        `short => shift: 153
-        `|| => shift: 84
+        `-- => shift: 47
+        "=" => shift: 149
+        sq => shift: 113
+        `interface => shift: 41
+        "%" => shift: 120
+        {13} => shift: 74
+        token* => shift: 84
+        `do => shift: 89
+        `default => shift: 75
+        digit => shift: 101
+        `short => shift: 156
+        `|| => shift: 85
         `case => shift: 16
-        `<= => shift: 154
-        token => shift: 124
+        `<= => shift: 157
+        token => shift: 126
         `super => shift: 32
-        `enum => shift: 66
+        `enum => shift: 67
         STRING_LITERAL => shift: 36
         $$0 => shift: 23
-        `synchronized => shift: 133
-        `double => shift: 53
+        `synchronized => shift: 135
+        `double => shift: 54
         "c" => shift: 33
-        `private => shift: 60
+        `private => shift: 61
         `++ => shift: 6
-        "+" => shift: 109
-        `} => shift: 147
-        white* => shift: 103
-        `{ => shift: 156
-        `continue => shift: 54
-        `float => shift: 106
-        ID => shift: 82
+        "+" => shift: 111
+        `} => shift: 150
+        white* => shift: 105
+        `{ => shift: 159
+        `continue => shift: 55
+        `float => shift: 108
+        ID => shift: 83
         `catch => shift: 12
-        `static => shift: 134
-        digit+ => shift: 129
+        `static => shift: 136
+        digit+ => shift: 131
         `const => shift: 15
-        `finally => shift: 135
+        `finally => shift: 137
         `byte => shift: 14
-        "b" => shift: 150
-        `!= => shift: 69
-        `] => shift: 125
-        `[ => shift: 94
-        `abstract => shift: 128
+        "b" => shift: 153
+        `!= => shift: 70
+        `] => shift: 127
+        `[ => shift: 96
+        `abstract => shift: 130
         {10} => shift: 17
 **** STATE 1 ****
     -----------------------
@@ -1230,20 +1239,21 @@
         "=" => reduce: 99
         {"0".."9"} => reduce: 99
         token => reduce: 99
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 99
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 99
-        white => shift: 132
+        white => shift: 134
         "e" => reduce: 99
         {255} => reduce: 99
+        "&" => reduce: 99
         "%" => reduce: 99
         "c" => reduce: 99
         "b" => reduce: 99
         "!" => reduce: 99
-        " " => shift: 100
+        " " => shift: 102
 **** STATE 4 ****
     token ::= [#] `try <%> // $
     token ::= [#] `try <%> // token
@@ -1256,6 +1266,7 @@
         "'" => reduce: 56
         "e" => reduce: 56
         {255} => reduce: 56
+        "&" => reduce: 56
         "%" => reduce: 56
         "c" => reduce: 56
         "b" => reduce: 56
@@ -1272,6 +1283,7 @@
         "'" => reduce: 22
         "e" => reduce: 22
         {255} => reduce: 22
+        "&" => reduce: 22
         "%" => reduce: 22
         "c" => reduce: 22
         "b" => reduce: 22
@@ -1288,6 +1300,7 @@
         "'" => reduce: 81
         "e" => reduce: 81
         {255} => reduce: 81
+        "&" => reduce: 81
         "%" => reduce: 81
         "c" => reduce: 81
         "b" => reduce: 81
@@ -1298,43 +1311,44 @@
     `boolean ::= "b" "o" "o" <%> "l" "e" "a" "n" !idChar white* // $
     `boolean ::= "b" "o" "o" <%> "l" "e" "a" "n" !idChar white* // token
     -----------------------
-        "l" => shift: 161
+        "l" => shift: 164
 **** STATE 8 ****
     white ::= eol <%> // $
     white ::= eol <%> // $$0
     white ::= eol <%> // white
     -----------------------
-        "=" => reduce: 115
-        $ => reduce: 115
-        {"0".."9"} => reduce: 115
-        $$0 => reduce: 115
-        {13} => reduce: 115
-        {9 12} => reduce: 115
-        "+" => reduce: 115
-        {10} => reduce: 115
-        white => reduce: 115
-        "'" => reduce: 115
-        "e" => reduce: 115
-        {255} => reduce: 115
-        "%" => reduce: 115
-        "c" => reduce: 115
-        "b" => reduce: 115
-        "!" => reduce: 115
-        " " => reduce: 115
+        "=" => reduce: 117
+        $ => reduce: 117
+        {"0".."9"} => reduce: 117
+        $$0 => reduce: 117
+        {13} => reduce: 117
+        {9 12} => reduce: 117
+        "+" => reduce: 117
+        {10} => reduce: 117
+        white => reduce: 117
+        "'" => reduce: 117
+        "e" => reduce: 117
+        {255} => reduce: 117
+        "&" => reduce: 117
+        "%" => reduce: 117
+        "c" => reduce: 117
+        "b" => reduce: 117
+        "!" => reduce: 117
+        " " => reduce: 117
 **** STATE 9 ****
     `else ::= "e" "l" "s" <%> "e" !idChar [white*] // $
     `else ::= "e" "l" "s" <%> "e" !idChar [white*] // token
     `else ::= "e" "l" "s" <%> "e" !idChar white* // $
     `else ::= "e" "l" "s" <%> "e" !idChar white* // token
     -----------------------
-        "e" => shift: 39
+        "e" => shift: 40
 **** STATE 10 ****
     `class ::= "c" "l" "a" "s" <%> "s" !idChar [white*] // $
     `class ::= "c" "l" "a" "s" <%> "s" !idChar [white*] // token
     `class ::= "c" "l" "a" "s" <%> "s" !idChar white* // $
     `class ::= "c" "l" "a" "s" <%> "s" !idChar white* // token
     -----------------------
-        "s" => shift: 61
+        "s" => shift: 62
 **** STATE 11 ****
     token ::= [#] `true <%> // $
     token ::= [#] `true <%> // token
@@ -1347,6 +1361,7 @@
         "'" => reduce: 17
         "e" => reduce: 17
         {255} => reduce: 17
+        "&" => reduce: 17
         "%" => reduce: 17
         "c" => reduce: 17
         "b" => reduce: 17
@@ -1363,6 +1378,7 @@
         "'" => reduce: 27
         "e" => reduce: 27
         {255} => reduce: 27
+        "&" => reduce: 27
         "%" => reduce: 27
         "c" => reduce: 27
         "b" => reduce: 27
@@ -1379,6 +1395,7 @@
         "'" => reduce: 86
         "e" => reduce: 86
         {255} => reduce: 86
+        "&" => reduce: 86
         "%" => reduce: 86
         "c" => reduce: 86
         "b" => reduce: 86
@@ -1395,6 +1412,7 @@
         "'" => reduce: 25
         "e" => reduce: 25
         {255} => reduce: 25
+        "&" => reduce: 25
         "%" => reduce: 25
         "c" => reduce: 25
         "b" => reduce: 25
@@ -1411,6 +1429,7 @@
         "'" => reduce: 29
         "e" => reduce: 29
         {255} => reduce: 29
+        "&" => reduce: 29
         "%" => reduce: 29
         "c" => reduce: 29
         "b" => reduce: 29
@@ -1427,6 +1446,7 @@
         "'" => reduce: 26
         "e" => reduce: 26
         {255} => reduce: 26
+        "&" => reduce: 26
         "%" => reduce: 26
         "c" => reduce: 26
         "b" => reduce: 26
@@ -1436,32 +1456,33 @@
     eol ::= {10} [registerNewline] <%> // $$0
     eol ::= {10} [registerNewline] <%> // white
     -----------------------
-        "=" => reduce: 116
-        $ => reduce: 116
-        {"0".."9"} => reduce: 116
-        $$0 => reduce: 116
-        {13} => reduce: 116
-        {9 12} => reduce: 116
-        "+" => reduce: 116
-        {10} => reduce: 116
-        white => reduce: 116
-        "'" => reduce: 116
-        "e" => reduce: 116
-        {255} => reduce: 116
-        "%" => reduce: 116
-        "c" => reduce: 116
-        "b" => reduce: 116
-        "!" => reduce: 116
-        " " => reduce: 116
+        "=" => reduce: 118
+        $ => reduce: 118
+        {"0".."9"} => reduce: 118
+        $$0 => reduce: 118
+        {13} => reduce: 118
+        {9 12} => reduce: 118
+        "+" => reduce: 118
+        {10} => reduce: 118
+        white => reduce: 118
+        "'" => reduce: 118
+        "e" => reduce: 118
+        {255} => reduce: 118
+        "&" => reduce: 118
+        "%" => reduce: 118
+        "c" => reduce: 118
+        "b" => reduce: 118
+        "!" => reduce: 118
+        " " => reduce: 118
 **** STATE 18 ****
     digit ::= {"0".."9"} !digit <%!digit> // $
     digit ::= {"0".."9"} !digit <%!digit> // token
     digit ::= {"0".."9"} !digit <%!digit> // white*
     digit ::= {"0".."9"} <%> // digit
     -----------------------
-        !digit => move: 158
-        !!digit => move: 58
-        <test> => move: 105
+        !digit => move: 161
+        !!digit => move: 59
+        <test> => move: 107
 **** STATE 19 ****
     token ::= [#] `< <%> // $
     token ::= [#] `< <%> // token
@@ -1474,6 +1495,7 @@
         "'" => reduce: 74
         "e" => reduce: 74
         {255} => reduce: 74
+        "&" => reduce: 74
         "%" => reduce: 74
         "c" => reduce: 74
         "b" => reduce: 74
@@ -1490,6 +1512,7 @@
         "'" => reduce: 47
         "e" => reduce: 47
         {255} => reduce: 47
+        "&" => reduce: 47
         "%" => reduce: 47
         "c" => reduce: 47
         "b" => reduce: 47
@@ -1521,8 +1544,8 @@
     white* ::= [white*] <%!idChar> white // $
     white* ::= [white*] <%!idChar> white // token
     white* ::= [white*] <%!idChar> white // white
-        !idChar => move: 43
-        <test> => move: 71
+        !idChar => move: 44
+        <test> => move: 72
         !!idChar => move: 1
 **** STATE 22 ****
     token ::= [#] `- <%> // $
@@ -1536,6 +1559,7 @@
         "'" => reduce: 67
         "e" => reduce: 67
         {255} => reduce: 67
+        "&" => reduce: 67
         "%" => reduce: 67
         "c" => reduce: 67
         "b" => reduce: 67
@@ -1575,8 +1599,8 @@
     white* ::= [white*] <%!"="> white // $
     white* ::= [white*] <%!"="> white // token
     white* ::= [white*] <%!"="> white // white
-        !"=" => move: 126
-        !!"=" => move: 80
+        !"=" => move: 128
+        !!"=" => move: 81
 **** STATE 25 ****
     `= ::= "=" white* <%> // $
     `= ::= "=" white* <%> // token
@@ -1603,20 +1627,21 @@
         "=" => reduce: 101
         {"0".."9"} => reduce: 101
         token => reduce: 101
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 101
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 101
-        white => shift: 132
+        white => shift: 134
         "e" => reduce: 101
         {255} => reduce: 101
+        "&" => reduce: 101
         "%" => reduce: 101
         "c" => reduce: 101
         "b" => reduce: 101
         "!" => reduce: 101
-        " " => shift: 100
+        " " => shift: 102
 **** STATE 26 ****
     token ::= [#] `throws <%> // $
     token ::= [#] `throws <%> // token
@@ -1629,6 +1654,7 @@
         "'" => reduce: 54
         "e" => reduce: 54
         {255} => reduce: 54
+        "&" => reduce: 54
         "%" => reduce: 54
         "c" => reduce: 54
         "b" => reduce: 54
@@ -1645,6 +1671,7 @@
         "'" => reduce: 70
         "e" => reduce: 70
         {255} => reduce: 70
+        "&" => reduce: 70
         "%" => reduce: 70
         "c" => reduce: 70
         "b" => reduce: 70
@@ -1661,6 +1688,7 @@
         "'" => reduce: 78
         "e" => reduce: 78
         {255} => reduce: 78
+        "&" => reduce: 78
         "%" => reduce: 78
         "c" => reduce: 78
         "b" => reduce: 78
@@ -1677,6 +1705,7 @@
         "'" => reduce: 42
         "e" => reduce: 42
         {255} => reduce: 42
+        "&" => reduce: 42
         "%" => reduce: 42
         "c" => reduce: 42
         "b" => reduce: 42
@@ -1708,25 +1737,26 @@
     white* ::= [white*] <%> white // $
     white* ::= [white*] <%> white // token
     white* ::= [white*] <%> white // white
-        $ => reduce: 106
-        "=" => reduce: 106
-        {"0".."9"} => reduce: 106
-        token => reduce: 106
-        eol => shift: 139
-        {13} => shift: 49
-        "+" => reduce: 106
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 108
-        "'" => reduce: 106
-        "e" => reduce: 106
-        white => shift: 152
-        {255} => reduce: 106
-        "%" => reduce: 106
-        "c" => reduce: 106
-        "b" => reduce: 106
-        "!" => reduce: 106
-        " " => shift: 100
+        $ => reduce: 108
+        "=" => reduce: 108
+        {"0".."9"} => reduce: 108
+        token => reduce: 108
+        eol => shift: 142
+        {13} => shift: 50
+        "+" => reduce: 108
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 110
+        "'" => reduce: 108
+        "e" => reduce: 108
+        white => shift: 155
+        {255} => reduce: 108
+        "&" => reduce: 108
+        "%" => reduce: 108
+        "c" => reduce: 108
+        "b" => reduce: 108
+        "!" => reduce: 108
+        " " => shift: 102
 **** STATE 31 ****
     token ::= [#] `: <%> // $
     token ::= [#] `: <%> // token
@@ -1739,6 +1769,7 @@
         "'" => reduce: 84
         "e" => reduce: 84
         {255} => reduce: 84
+        "&" => reduce: 84
         "%" => reduce: 84
         "c" => reduce: 84
         "b" => reduce: 84
@@ -1755,6 +1786,7 @@
         "'" => reduce: 18
         "e" => reduce: 18
         {255} => reduce: 18
+        "&" => reduce: 18
         "%" => reduce: 18
         "c" => reduce: 18
         "b" => reduce: 18
@@ -1765,7 +1797,7 @@
     `class ::= "c" <%> "l" "a" "s" "s" !idChar white* // $
     `class ::= "c" <%> "l" "a" "s" "s" !idChar white* // token
     -----------------------
-        "l" => shift: 164
+        "l" => shift: 167
 **** STATE 34 ****
     token ::= [#] `instanceof <%> // $
     token ::= [#] `instanceof <%> // token
@@ -1778,6 +1810,7 @@
         "'" => reduce: 21
         "e" => reduce: 21
         {255} => reduce: 21
+        "&" => reduce: 21
         "%" => reduce: 21
         "c" => reduce: 21
         "b" => reduce: 21
@@ -1785,8 +1818,8 @@
 **** STATE 35 ****
     printable ::= {" ".."~"} <%> // sq
     -----------------------
-        "'" => reduce: 119
-        sq => reduce: 119
+        "'" => reduce: 121
+        sq => reduce: 121
 **** STATE 36 ****
     token ::= [#] STRING_LITERAL <%> // $
     token ::= [#] STRING_LITERAL <%> // token
@@ -1799,6 +1832,7 @@
         "'" => reduce: 87
         "e" => reduce: 87
         {255} => reduce: 87
+        "&" => reduce: 87
         "%" => reduce: 87
         "c" => reduce: 87
         "b" => reduce: 87
@@ -1809,24 +1843,32 @@
     `boolean ::= "b" "o" "o" "l" "e" <%> "a" "n" !idChar white* // $
     `boolean ::= "b" "o" "o" "l" "e" <%> "a" "n" !idChar white* // token
     -----------------------
-        "a" => shift: 79
+        "a" => shift: 80
 **** STATE 38 ****
+    `&& ::= "&" <%> "&" [white*] // $
+    `&& ::= "&" <%> "&" [white*] // token
+    `&& ::= "&" <%> "&" white* // $
+    `&& ::= "&" <%> "&" white* // token
+    -----------------------
+        "&" => shift: 88
+**** STATE 39 ****
     token* ::= token* token <%> // $
     token* ::= token* token <%> // token
     -----------------------
-        $ => reduce: 195
-        "=" => reduce: 195
-        {"0".."9"} => reduce: 195
-        token => reduce: 195
-        "+" => reduce: 195
-        "'" => reduce: 195
-        "e" => reduce: 195
-        {255} => reduce: 195
-        "%" => reduce: 195
-        "c" => reduce: 195
-        "b" => reduce: 195
-        "!" => reduce: 195
-**** STATE 39 ****
+        $ => reduce: 196
+        "=" => reduce: 196
+        {"0".."9"} => reduce: 196
+        token => reduce: 196
+        "+" => reduce: 196
+        "'" => reduce: 196
+        "e" => reduce: 196
+        {255} => reduce: 196
+        "&" => reduce: 196
+        "%" => reduce: 196
+        "c" => reduce: 196
+        "b" => reduce: 196
+        "!" => reduce: 196
+**** STATE 40 ****
     `else ::= "e" "l" "s" "e" !idChar <%!idChar> white* // $
     `else ::= "e" "l" "s" "e" !idChar <%!idChar> white* // token
     `else ::= "e" "l" "s" "e" !idChar [white*] <%!idChar> // $
@@ -1853,10 +1895,10 @@
     white* ::= [white*] <%!idChar> white // $
     white* ::= [white*] <%!idChar> white // token
     white* ::= [white*] <%!idChar> white // white
-        !idChar => move: 121
-        <test> => move: 71
+        !idChar => move: 123
+        <test> => move: 72
         !!idChar => move: 1
-**** STATE 40 ****
+**** STATE 41 ****
     token ::= [#] `interface <%> // $
     token ::= [#] `interface <%> // token
     -----------------------
@@ -1868,11 +1910,12 @@
         "'" => reduce: 41
         "e" => reduce: 41
         {255} => reduce: 41
+        "&" => reduce: 41
         "%" => reduce: 41
         "c" => reduce: 41
         "b" => reduce: 41
         "!" => reduce: 41
-**** STATE 41 ****
+**** STATE 42 ****
     token ::= [#] `if <%> // $
     token ::= [#] `if <%> // token
     -----------------------
@@ -1884,11 +1927,12 @@
         "'" => reduce: 11
         "e" => reduce: 11
         {255} => reduce: 11
+        "&" => reduce: 11
         "%" => reduce: 11
         "c" => reduce: 11
         "b" => reduce: 11
         "!" => reduce: 11
-**** STATE 42 ****
+**** STATE 43 ****
     token ::= [#] `goto <%> // $
     token ::= [#] `goto <%> // token
     -----------------------
@@ -1900,11 +1944,12 @@
         "'" => reduce: 38
         "e" => reduce: 38
         {255} => reduce: 38
+        "&" => reduce: 38
         "%" => reduce: 38
         "c" => reduce: 38
         "b" => reduce: 38
         "!" => reduce: 38
-**** STATE 43 ****
+**** STATE 44 ****
     `boolean ::= "b" "o" "o" "l" "e" "a" "n" !idChar <!idChar%> white* // $
     `boolean ::= "b" "o" "o" "l" "e" "a" "n" !idChar <!idChar%> white* // token
     `boolean ::= "b" "o" "o" "l" "e" "a" "n" !idChar [white*] <!idChar%> // $
@@ -1935,22 +1980,23 @@
         $ => reduce: 94
         {"0".."9"} => reduce: 94
         token => reduce: 94
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 94
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 142
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 145
         "'" => reduce: 94
         "e" => reduce: 94
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 94
+        "&" => reduce: 94
         "%" => reduce: 94
         "c" => reduce: 94
         "b" => reduce: 94
         "!" => reduce: 94
-        " " => shift: 100
-**** STATE 44 ****
+        " " => shift: 102
+**** STATE 45 ****
     token ::= [#] `> <%> // $
     token ::= [#] `> <%> // token
     -----------------------
@@ -1962,11 +2008,12 @@
         "'" => reduce: 77
         "e" => reduce: 77
         {255} => reduce: 77
+        "&" => reduce: 77
         "%" => reduce: 77
         "c" => reduce: 77
         "b" => reduce: 77
         "!" => reduce: 77
-**** STATE 45 ****
+**** STATE 46 ****
     token ::= [#] `package <%> // $
     token ::= [#] `package <%> // token
     -----------------------
@@ -1978,11 +2025,12 @@
         "'" => reduce: 44
         "e" => reduce: 44
         {255} => reduce: 44
+        "&" => reduce: 44
         "%" => reduce: 44
         "c" => reduce: 44
         "b" => reduce: 44
         "!" => reduce: 44
-**** STATE 46 ****
+**** STATE 47 ****
     token ::= [#] `-- <%> // $
     token ::= [#] `-- <%> // token
     -----------------------
@@ -1994,11 +2042,12 @@
         "'" => reduce: 82
         "e" => reduce: 82
         {255} => reduce: 82
+        "&" => reduce: 82
         "%" => reduce: 82
         "c" => reduce: 82
         "b" => reduce: 82
         "!" => reduce: 82
-**** STATE 47 ****
+**** STATE 48 ****
     token ::= [#] `* <%> // $
     token ::= [#] `* <%> // token
     -----------------------
@@ -2010,11 +2059,12 @@
         "'" => reduce: 62
         "e" => reduce: 62
         {255} => reduce: 62
+        "&" => reduce: 62
         "%" => reduce: 62
         "c" => reduce: 62
         "b" => reduce: 62
         "!" => reduce: 62
-**** STATE 48 ****
+**** STATE 49 ****
     `% ::= "%" white* <%> // $
     `% ::= "%" white* <%> // token
     white* ::= white* <%> white // $
@@ -2040,21 +2090,22 @@
         $ => reduce: 103
         {"0".."9"} => reduce: 103
         token => reduce: 103
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 103
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 103
         "e" => reduce: 103
-        white => shift: 132
+        white => shift: 134
         {255} => reduce: 103
+        "&" => reduce: 103
         "%" => reduce: 103
         "c" => reduce: 103
         "b" => reduce: 103
         "!" => reduce: 103
-        " " => shift: 100
-**** STATE 49 ****
+        " " => shift: 102
+**** STATE 50 ****
     eol ::= {13} !10 [registerNewline] <%!10> // $
     eol ::= {13} !10 [registerNewline] <%!10> // token
     eol ::= {13} !10 [registerNewline] <%!10> // white
@@ -2062,9 +2113,9 @@
     eol ::= {13} <%> {10} [registerNewline] // token
     eol ::= {13} <%> {10} [registerNewline] // white
     -----------------------
-        !10 => move: 85
-        !!10 => move: 138
-**** STATE 50 ****
+        !10 => move: 86
+        !!10 => move: 141
+**** STATE 51 ****
     token ::= [#] `( <%> // $
     token ::= [#] `( <%> // token
     -----------------------
@@ -2076,11 +2127,12 @@
         "'" => reduce: 63
         "e" => reduce: 63
         {255} => reduce: 63
+        "&" => reduce: 63
         "%" => reduce: 63
         "c" => reduce: 63
         "b" => reduce: 63
         "!" => reduce: 63
-**** STATE 51 ****
+**** STATE 52 ****
     token ::= [#] `boolean <%> // $
     token ::= [#] `boolean <%> // token
     -----------------------
@@ -2092,11 +2144,12 @@
         "'" => reduce: 5
         "e" => reduce: 5
         {255} => reduce: 5
+        "&" => reduce: 5
         "%" => reduce: 5
         "c" => reduce: 5
         "b" => reduce: 5
         "!" => reduce: 5
-**** STATE 52 ****
+**** STATE 53 ****
     token ::= [#] `. <%> // $
     token ::= [#] `. <%> // token
     -----------------------
@@ -2108,11 +2161,12 @@
         "'" => reduce: 79
         "e" => reduce: 79
         {255} => reduce: 79
+        "&" => reduce: 79
         "%" => reduce: 79
         "c" => reduce: 79
         "b" => reduce: 79
         "!" => reduce: 79
-**** STATE 53 ****
+**** STATE 54 ****
     token ::= [#] `double <%> // $
     token ::= [#] `double <%> // token
     -----------------------
@@ -2124,11 +2178,12 @@
         "'" => reduce: 33
         "e" => reduce: 33
         {255} => reduce: 33
+        "&" => reduce: 33
         "%" => reduce: 33
         "c" => reduce: 33
         "b" => reduce: 33
         "!" => reduce: 33
-**** STATE 54 ****
+**** STATE 55 ****
     token ::= [#] `continue <%> // $
     token ::= [#] `continue <%> // token
     -----------------------
@@ -2140,11 +2195,12 @@
         "'" => reduce: 30
         "e" => reduce: 30
         {255} => reduce: 30
+        "&" => reduce: 30
         "%" => reduce: 30
         "c" => reduce: 30
         "b" => reduce: 30
         "!" => reduce: 30
-**** STATE 55 ****
+**** STATE 56 ****
     token ::= [#] `return <%> // $
     token ::= [#] `return <%> // token
     -----------------------
@@ -2156,11 +2212,12 @@
         "'" => reduce: 20
         "e" => reduce: 20
         {255} => reduce: 20
+        "&" => reduce: 20
         "%" => reduce: 20
         "c" => reduce: 20
         "b" => reduce: 20
         "!" => reduce: 20
-**** STATE 56 ****
+**** STATE 57 ****
     token ::= [#] `; <%> // $
     token ::= [#] `; <%> // token
     -----------------------
@@ -2172,11 +2229,12 @@
         "'" => reduce: 80
         "e" => reduce: 80
         {255} => reduce: 80
+        "&" => reduce: 80
         "%" => reduce: 80
         "c" => reduce: 80
         "b" => reduce: 80
         "!" => reduce: 80
-**** STATE 57 ****
+**** STATE 58 ****
     token ::= [#] `assert <%> // $
     token ::= [#] `assert <%> // token
     -----------------------
@@ -2188,23 +2246,24 @@
         "'" => reduce: 24
         "e" => reduce: 24
         {255} => reduce: 24
+        "&" => reduce: 24
         "%" => reduce: 24
         "c" => reduce: 24
         "b" => reduce: 24
         "!" => reduce: 24
-**** STATE 58 ****
+**** STATE 59 ****
     digit ::= {"0".."9"} <!!digit%> // digit
     -----------------------
-        digit => reduce: 113
-        {"0".."9"} => reduce: 113
-**** STATE 59 ****
+        digit => reduce: 115
+        {"0".."9"} => reduce: 115
+**** STATE 60 ****
     `boolean ::= "b" "o" <%> "o" "l" "e" "a" "n" !idChar [white*] // $
     `boolean ::= "b" "o" <%> "o" "l" "e" "a" "n" !idChar [white*] // token
     `boolean ::= "b" "o" <%> "o" "l" "e" "a" "n" !idChar white* // $
     `boolean ::= "b" "o" <%> "o" "l" "e" "a" "n" !idChar white* // token
     -----------------------
         "o" => shift: 7
-**** STATE 60 ****
+**** STATE 61 ****
     token ::= [#] `private <%> // $
     token ::= [#] `private <%> // token
     -----------------------
@@ -2216,11 +2275,12 @@
         "'" => reduce: 45
         "e" => reduce: 45
         {255} => reduce: 45
+        "&" => reduce: 45
         "%" => reduce: 45
         "c" => reduce: 45
         "b" => reduce: 45
         "!" => reduce: 45
-**** STATE 61 ****
+**** STATE 62 ****
     `class ::= "c" "l" "a" "s" "s" !idChar <%!idChar> white* // $
     `class ::= "c" "l" "a" "s" "s" !idChar <%!idChar> white* // token
     `class ::= "c" "l" "a" "s" "s" !idChar [white*] <%!idChar> // $
@@ -2247,32 +2307,33 @@
     white* ::= [white*] <%!idChar> white // $
     white* ::= [white*] <%!idChar> white // token
     white* ::= [white*] <%!idChar> white // white
-        !idChar => move: 123
-        <test> => move: 71
+        !idChar => move: 125
+        <test> => move: 72
         !!idChar => move: 1
-**** STATE 62 ****
+**** STATE 63 ****
     eol ::= {13} !10 [registerNewline] <!10%> // $
     eol ::= {13} !10 [registerNewline] <!10%> // $$0
     eol ::= {13} !10 [registerNewline] <!10%> // white
     -----------------------
-        "=" => reduce: 118
-        $ => reduce: 118
-        {"0".."9"} => reduce: 118
-        $$0 => reduce: 118
-        {13} => reduce: 118
-        "+" => reduce: 118
-        {9 12} => reduce: 118
-        {10} => reduce: 118
-        "'" => reduce: 118
-        white => reduce: 118
-        "e" => reduce: 118
-        {255} => reduce: 118
-        "%" => reduce: 118
-        "c" => reduce: 118
-        "b" => reduce: 118
-        "!" => reduce: 118
-        " " => reduce: 118
-**** STATE 63 ****
+        "=" => reduce: 120
+        $ => reduce: 120
+        {"0".."9"} => reduce: 120
+        $$0 => reduce: 120
+        {13} => reduce: 120
+        "+" => reduce: 120
+        {9 12} => reduce: 120
+        {10} => reduce: 120
+        "'" => reduce: 120
+        white => reduce: 120
+        "e" => reduce: 120
+        {255} => reduce: 120
+        "&" => reduce: 120
+        "%" => reduce: 120
+        "c" => reduce: 120
+        "b" => reduce: 120
+        "!" => reduce: 120
+        " " => reduce: 120
+**** STATE 64 ****
     `else ::= "e" "l" "s" "e" !idChar white* <%> // $
     `else ::= "e" "l" "s" "e" !idChar white* <%> // token
     white* ::= white* <%> white // $
@@ -2298,21 +2359,22 @@
         $ => reduce: 91
         {"0".."9"} => reduce: 91
         token => reduce: 91
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 91
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 91
         "e" => reduce: 91
-        white => shift: 132
+        white => shift: 134
         {255} => reduce: 91
+        "&" => reduce: 91
         "%" => reduce: 91
         "c" => reduce: 91
         "b" => reduce: 91
         "!" => reduce: 91
-        " " => shift: 100
-**** STATE 64 ****
+        " " => shift: 102
+**** STATE 65 ****
     token ::= [#] `throw <%> // $
     token ::= [#] `throw <%> // token
     -----------------------
@@ -2324,11 +2386,12 @@
         "'" => reduce: 53
         "e" => reduce: 53
         {255} => reduce: 53
+        "&" => reduce: 53
         "%" => reduce: 53
         "c" => reduce: 53
         "b" => reduce: 53
         "!" => reduce: 53
-**** STATE 65 ****
+**** STATE 66 ****
     token ::= [#] `final <%> // $
     token ::= [#] `final <%> // token
     -----------------------
@@ -2340,11 +2403,12 @@
         "'" => reduce: 35
         "e" => reduce: 35
         {255} => reduce: 35
+        "&" => reduce: 35
         "%" => reduce: 35
         "c" => reduce: 35
         "b" => reduce: 35
         "!" => reduce: 35
-**** STATE 66 ****
+**** STATE 67 ****
     token ::= [#] `enum <%> // $
     token ::= [#] `enum <%> // token
     -----------------------
@@ -2356,11 +2420,12 @@
         "'" => reduce: 34
         "e" => reduce: 34
         {255} => reduce: 34
+        "&" => reduce: 34
         "%" => reduce: 34
         "c" => reduce: 34
         "b" => reduce: 34
         "!" => reduce: 34
-**** STATE 67 ****
+**** STATE 68 ****
     token ::= [#] `&& <%> // $
     token ::= [#] `&& <%> // token
     -----------------------
@@ -2372,11 +2437,12 @@
         "'" => reduce: 61
         "e" => reduce: 61
         {255} => reduce: 61
+        "&" => reduce: 61
         "%" => reduce: 61
         "c" => reduce: 61
         "b" => reduce: 61
         "!" => reduce: 61
-**** STATE 68 ****
+**** STATE 69 ****
     token ::= [#] `, <%> // $
     token ::= [#] `, <%> // token
     -----------------------
@@ -2388,11 +2454,12 @@
         "'" => reduce: 76
         "e" => reduce: 76
         {255} => reduce: 76
+        "&" => reduce: 76
         "%" => reduce: 76
         "c" => reduce: 76
         "b" => reduce: 76
         "!" => reduce: 76
-**** STATE 69 ****
+**** STATE 70 ****
     token ::= [#] `!= <%> // $
     token ::= [#] `!= <%> // token
     -----------------------
@@ -2404,11 +2471,12 @@
         "'" => reduce: 59
         "e" => reduce: 59
         {255} => reduce: 59
+        "&" => reduce: 59
         "%" => reduce: 59
         "c" => reduce: 59
         "b" => reduce: 59
         "!" => reduce: 59
-**** STATE 70 ****
+**** STATE 71 ****
     token ::= [#] `native <%> // $
     token ::= [#] `native <%> // token
     -----------------------
@@ -2420,31 +2488,32 @@
         "'" => reduce: 43
         "e" => reduce: 43
         {255} => reduce: 43
+        "&" => reduce: 43
         "%" => reduce: 43
         "c" => reduce: 43
         "b" => reduce: 43
         "!" => reduce: 43
-**** STATE 71 ****
+**** STATE 72 ****
     idChar ::= <%> "_" // $NT
     idChar ::= <%> digit // $NT
     idChar ::= <%> letter // $NT
     -----------------------
     digit ::= <%> {"0".."9"} // $NT
     letter ::= <%> {"A".."Z" "a".."z"} // $NT
-        {"A".."Z" "d" "f".."k" "m" "p".."r" "t".."z"} => shift: 167
-        {"0".."9"} => shift: 166
-        digit => shift: 145
-        "s" => shift: 167
-        letter => shift: 104
-        "o" => shift: 167
-        "n" => shift: 167
-        "l" => shift: 167
-        "e" => shift: 167
-        "c" => shift: 167
-        "b" => shift: 167
-        "a" => shift: 167
-        "_" => shift: 149
-**** STATE 72 ****
+        {"A".."Z" "d" "f".."k" "m" "p".."r" "t".."z"} => shift: 170
+        {"0".."9"} => shift: 169
+        digit => shift: 148
+        "s" => shift: 170
+        letter => shift: 106
+        "o" => shift: 170
+        "n" => shift: 170
+        "l" => shift: 170
+        "e" => shift: 170
+        "c" => shift: 170
+        "b" => shift: 170
+        "a" => shift: 170
+        "_" => shift: 152
+**** STATE 73 ****
     token ::= [#] `switch <%> // $
     token ::= [#] `switch <%> // token
     -----------------------
@@ -2456,11 +2525,12 @@
         "'" => reduce: 51
         "e" => reduce: 51
         {255} => reduce: 51
+        "&" => reduce: 51
         "%" => reduce: 51
         "c" => reduce: 51
         "b" => reduce: 51
         "!" => reduce: 51
-**** STATE 73 ****
+**** STATE 74 ****
     eol ::= {13} !10 [registerNewline] <%!10> // $
     eol ::= {13} !10 [registerNewline] <%!10> // $$0
     eol ::= {13} !10 [registerNewline] <%!10> // white
@@ -2468,9 +2538,9 @@
     eol ::= {13} <%> {10} [registerNewline] // $$0
     eol ::= {13} <%> {10} [registerNewline] // white
     -----------------------
-        !10 => move: 62
-        !!10 => move: 162
-**** STATE 74 ****
+        !10 => move: 63
+        !!10 => move: 165
+**** STATE 75 ****
     token ::= [#] `default <%> // $
     token ::= [#] `default <%> // token
     -----------------------
@@ -2482,41 +2552,43 @@
         "'" => reduce: 31
         "e" => reduce: 31
         {255} => reduce: 31
+        "&" => reduce: 31
         "%" => reduce: 31
         "c" => reduce: 31
         "b" => reduce: 31
         "!" => reduce: 31
-**** STATE 75 ****
+**** STATE 76 ****
     CHARACTER_LITERAL ::= sq printable <%> sq // $
     CHARACTER_LITERAL ::= sq printable <%> sq // token
     -----------------------
     sq ::= <%> "'" // $
     sq ::= <%> "'" // token
-        "'" => shift: 116
-        sq => shift: 119
-**** STATE 76 ****
+        "'" => shift: 118
+        sq => shift: 121
+**** STATE 77 ****
     eol ::= {10} [registerNewline] <%> // $
     eol ::= {10} [registerNewline] <%> // token
     eol ::= {10} [registerNewline] <%> // white
     -----------------------
-        "=" => reduce: 116
-        $ => reduce: 116
-        {"0".."9"} => reduce: 116
-        token => reduce: 116
-        {13} => reduce: 116
-        "+" => reduce: 116
-        {9 12} => reduce: 116
-        {10} => reduce: 116
-        "'" => reduce: 116
-        white => reduce: 116
-        "e" => reduce: 116
-        {255} => reduce: 116
-        "%" => reduce: 116
-        "c" => reduce: 116
-        "b" => reduce: 116
-        "!" => reduce: 116
-        " " => reduce: 116
-**** STATE 77 ****
+        "=" => reduce: 118
+        $ => reduce: 118
+        {"0".."9"} => reduce: 118
+        token => reduce: 118
+        {13} => reduce: 118
+        "+" => reduce: 118
+        {9 12} => reduce: 118
+        {10} => reduce: 118
+        "'" => reduce: 118
+        white => reduce: 118
+        "e" => reduce: 118
+        {255} => reduce: 118
+        "&" => reduce: 118
+        "%" => reduce: 118
+        "c" => reduce: 118
+        "b" => reduce: 118
+        "!" => reduce: 118
+        " " => reduce: 118
+**** STATE 78 ****
     token ::= [#] `/ <%> // $
     token ::= [#] `/ <%> // token
     -----------------------
@@ -2528,69 +2600,72 @@
         "'" => reduce: 83
         "e" => reduce: 83
         {255} => reduce: 83
+        "&" => reduce: 83
         "%" => reduce: 83
         "c" => reduce: 83
         "b" => reduce: 83
         "!" => reduce: 83
-**** STATE 78 ****
+**** STATE 79 ****
     sq ::= "'" <%> // printable
     -----------------------
-        "=" => reduce: 107
-        {"A".."Z" "d" "f".."k" "m" "p".."r" "t".."z"} => reduce: 107
-        {"0".."9"} => reduce: 107
-        "s" => reduce: 107
-        "o" => reduce: 107
-        "n" => reduce: 107
-        "l" => reduce: 107
-        "+" => reduce: 107
-        printable => reduce: 107
-        "'" => reduce: 107
-        "e" => reduce: 107
-        "%" => reduce: 107
-        "c" => reduce: 107
-        "b" => reduce: 107
-        {'"'.."$" "&" "(".."*" ",".."/" ":".."<" ">".."@" "[".."^" "`" "{".."~"} => reduce: 107
-        "a" => reduce: 107
-        "!" => reduce: 107
-        "_" => reduce: 107
-        " " => reduce: 107
-**** STATE 79 ****
+        "=" => reduce: 109
+        {"A".."Z" "d" "f".."k" "m" "p".."r" "t".."z"} => reduce: 109
+        {"0".."9"} => reduce: 109
+        "s" => reduce: 109
+        "o" => reduce: 109
+        "n" => reduce: 109
+        "l" => reduce: 109
+        "+" => reduce: 109
+        printable => reduce: 109
+        "'" => reduce: 109
+        "e" => reduce: 109
+        "&" => reduce: 109
+        "%" => reduce: 109
+        "c" => reduce: 109
+        "b" => reduce: 109
+        "a" => reduce: 109
+        {'"'.."$" "(".."*" ",".."/" ":".."<" ">".."@" "[".."^" "`" "{".."~"} => reduce: 109
+        "!" => reduce: 109
+        "_" => reduce: 109
+        " " => reduce: 109
+**** STATE 80 ****
     `boolean ::= "b" "o" "o" "l" "e" "a" <%> "n" !idChar [white*] // $
     `boolean ::= "b" "o" "o" "l" "e" "a" <%> "n" !idChar [white*] // token
     `boolean ::= "b" "o" "o" "l" "e" "a" <%> "n" !idChar white* // $
     `boolean ::= "b" "o" "o" "l" "e" "a" <%> "n" !idChar white* // token
     -----------------------
         "n" => shift: 21
-**** STATE 80 ****
+**** STATE 81 ****
     `!= ::= "!" <!!"="%> "=" [white*] // $
     `!= ::= "!" <!!"="%> "=" [white*] // token
     `!= ::= "!" <!!"="%> "=" white* // $
     `!= ::= "!" <!!"="%> "=" white* // token
     -----------------------
-        "=" => shift: 96
-**** STATE 81 ****
+        "=" => shift: 98
+**** STATE 82 ****
     white ::= {9 12 " "} <%> // $
     white ::= {9 12 " "} <%> // $$0
     white ::= {9 12 " "} <%> // white
     -----------------------
-        "=" => reduce: 114
-        $ => reduce: 114
-        {"0".."9"} => reduce: 114
-        $$0 => reduce: 114
-        {13} => reduce: 114
-        {9 12} => reduce: 114
-        "+" => reduce: 114
-        {10} => reduce: 114
-        white => reduce: 114
-        "'" => reduce: 114
-        "e" => reduce: 114
-        {255} => reduce: 114
-        "%" => reduce: 114
-        "c" => reduce: 114
-        "b" => reduce: 114
-        "!" => reduce: 114
-        " " => reduce: 114
-**** STATE 82 ****
+        "=" => reduce: 116
+        $ => reduce: 116
+        {"0".."9"} => reduce: 116
+        $$0 => reduce: 116
+        {13} => reduce: 116
+        {9 12} => reduce: 116
+        "+" => reduce: 116
+        {10} => reduce: 116
+        white => reduce: 116
+        "'" => reduce: 116
+        "e" => reduce: 116
+        {255} => reduce: 116
+        "&" => reduce: 116
+        "%" => reduce: 116
+        "c" => reduce: 116
+        "b" => reduce: 116
+        "!" => reduce: 116
+        " " => reduce: 116
+**** STATE 83 ****
     token ::= [#] ID <%> // $
     token ::= [#] ID <%> // token
     -----------------------
@@ -2602,11 +2677,12 @@
         "'" => reduce: 85
         "e" => reduce: 85
         {255} => reduce: 85
+        "&" => reduce: 85
         "%" => reduce: 85
         "c" => reduce: 85
         "b" => reduce: 85
         "!" => reduce: 85
-**** STATE 83 ****
+**** STATE 84 ****
     $$0 ::= token* <%> // $
     token* ::= token* <%> token // $
     token* ::= token* <%> token // token
@@ -2629,6 +2705,10 @@
     `% ::= <%> "%" [white*] // token
     `% ::= <%> "%" white* // $
     `% ::= <%> "%" white* // token
+    `&& ::= <%> "&" "&" [white*] // $
+    `&& ::= <%> "&" "&" [white*] // token
+    `&& ::= <%> "&" "&" white* // $
+    `&& ::= <%> "&" "&" white* // token
     `+ ::= <%> "+" [white*] // $
     `+ ::= <%> "+" [white*] // token
     `+ ::= <%> "+" white* // $
@@ -2833,106 +2913,107 @@
     token ::= [#] <%> `|| // token
     token ::= [#] <%> `} // $
     token ::= [#] <%> `} // token
-        `null => shift: 143
-        `throw => shift: 64
+        `null => shift: 146
+        `throw => shift: 65
         `instanceof => shift: 34
-        `int => shift: 120
-        `switch => shift: 72
-        `extends => shift: 112
+        `int => shift: 122
+        `switch => shift: 73
+        `extends => shift: 114
         `long => shift: 29
-        `if => shift: 41
+        `if => shift: 42
         `try => shift: 4
-        `> => shift: 44
+        `> => shift: 45
         "!" => shift: 24
-        `= => shift: 88
+        `= => shift: 90
         `< => shift: 19
-        `; => shift: 56
+        `; => shift: 57
         `: => shift: 31
-        `volatile => shift: 122
+        `volatile => shift: 124
         `public => shift: 20
         INT_LITERAL => shift: 13
-        `protected => shift: 107
-        `false => shift: 165
-        `transient => shift: 160
-        `final => shift: 65
-        `/ => shift: 77
-        `. => shift: 52
+        `protected => shift: 109
+        `false => shift: 168
+        `transient => shift: 163
+        `final => shift: 66
+        `/ => shift: 78
+        `. => shift: 53
         `- => shift: 22
-        `strictfp => shift: 141
-        `, => shift: 68
-        `+ => shift: 130
-        `* => shift: 47
-        `) => shift: 127
+        `strictfp => shift: 144
+        `, => shift: 69
+        `+ => shift: 132
+        `* => shift: 48
+        `) => shift: 129
         {"0".."9"} => shift: 18
-        `( => shift: 50
-        `% => shift: 90
-        `boolean => shift: 51
-        `! => shift: 137
-        `return => shift: 55
-        `break => shift: 97
-        `for => shift: 131
-        `implements => shift: 157
+        `( => shift: 51
+        `% => shift: 92
+        `boolean => shift: 52
+        `! => shift: 140
+        `return => shift: 56
+        `break => shift: 99
+        `for => shift: 133
+        `implements => shift: 160
         `new => shift: 5
-        `assert => shift: 57
+        `assert => shift: 58
         `true => shift: 11
-        `native => shift: 70
-        "'" => shift: 78
-        $ => reduce: 202
-        `this => shift: 113
-        `class => shift: 148
-        `void => shift: 159
-        CHARACTER_LITERAL => shift: 110
-        `char => shift: 168
-        `goto => shift: 42
-        `while => shift: 89
+        `native => shift: 71
+        "'" => shift: 79
+        $ => reduce: 203
+        `this => shift: 115
+        `class => shift: 151
+        `void => shift: 162
+        CHARACTER_LITERAL => shift: 112
+        `char => shift: 171
+        `goto => shift: 43
+        `while => shift: 91
         `>= => shift: 28
         digit++ => shift: 30
-        `&& => shift: 67
-        `package => shift: 45
-        `import => shift: 170
+        `&& => shift: 68
+        "&" => shift: 38
+        `package => shift: 46
+        `import => shift: 173
         `throws => shift: 26
-        `else => shift: 169
-        "e" => shift: 115
+        `else => shift: 172
+        "e" => shift: 117
         `== => shift: 27
-        `-- => shift: 46
-        "=" => shift: 146
-        sq => shift: 111
-        `interface => shift: 40
-        "%" => shift: 118
-        `do => shift: 87
-        `default => shift: 74
-        digit => shift: 99
-        `short => shift: 153
-        `|| => shift: 84
+        `-- => shift: 47
+        "=" => shift: 149
+        sq => shift: 113
+        `interface => shift: 41
+        "%" => shift: 120
+        `do => shift: 89
+        `default => shift: 75
+        digit => shift: 101
+        `short => shift: 156
+        `|| => shift: 85
         `case => shift: 16
-        `<= => shift: 154
-        token => shift: 38
+        `<= => shift: 157
+        token => shift: 39
         `super => shift: 32
-        `enum => shift: 66
+        `enum => shift: 67
         STRING_LITERAL => shift: 36
-        `synchronized => shift: 133
-        `double => shift: 53
+        `synchronized => shift: 135
+        `double => shift: 54
         "c" => shift: 33
-        `private => shift: 60
+        `private => shift: 61
         `++ => shift: 6
-        "+" => shift: 109
-        `} => shift: 147
-        `{ => shift: 156
-        `continue => shift: 54
-        `float => shift: 106
-        ID => shift: 82
+        "+" => shift: 111
+        `} => shift: 150
+        `{ => shift: 159
+        `continue => shift: 55
+        `float => shift: 108
+        ID => shift: 83
         `catch => shift: 12
-        `static => shift: 134
+        `static => shift: 136
         `const => shift: 15
-        digit+ => shift: 129
-        `finally => shift: 135
+        digit+ => shift: 131
+        `finally => shift: 137
         `byte => shift: 14
-        "b" => shift: 150
-        `!= => shift: 69
-        `] => shift: 125
-        `abstract => shift: 128
-        `[ => shift: 94
-**** STATE 84 ****
+        "b" => shift: 153
+        `!= => shift: 70
+        `] => shift: 127
+        `abstract => shift: 130
+        `[ => shift: 96
+**** STATE 85 ****
     token ::= [#] `|| <%> // $
     token ::= [#] `|| <%> // token
     -----------------------
@@ -2944,55 +3025,105 @@
         "'" => reduce: 73
         "e" => reduce: 73
         {255} => reduce: 73
+        "&" => reduce: 73
         "%" => reduce: 73
         "c" => reduce: 73
         "b" => reduce: 73
         "!" => reduce: 73
-**** STATE 85 ****
+**** STATE 86 ****
     eol ::= {13} !10 [registerNewline] <!10%> // $
     eol ::= {13} !10 [registerNewline] <!10%> // token
     eol ::= {13} !10 [registerNewline] <!10%> // white
     -----------------------
-        $ => reduce: 118
-        "=" => reduce: 118
-        {"0".."9"} => reduce: 118
-        token => reduce: 118
-        {13} => reduce: 118
-        "+" => reduce: 118
-        {9 12} => reduce: 118
-        {10} => reduce: 118
-        "'" => reduce: 118
-        white => reduce: 118
-        "e" => reduce: 118
-        {255} => reduce: 118
-        "%" => reduce: 118
-        "c" => reduce: 118
-        "b" => reduce: 118
-        "!" => reduce: 118
-        " " => reduce: 118
-**** STATE 86 ****
+        $ => reduce: 120
+        "=" => reduce: 120
+        {"0".."9"} => reduce: 120
+        token => reduce: 120
+        {13} => reduce: 120
+        "+" => reduce: 120
+        {9 12} => reduce: 120
+        {10} => reduce: 120
+        "'" => reduce: 120
+        white => reduce: 120
+        "e" => reduce: 120
+        {255} => reduce: 120
+        "&" => reduce: 120
+        "%" => reduce: 120
+        "c" => reduce: 120
+        "b" => reduce: 120
+        "!" => reduce: 120
+        " " => reduce: 120
+**** STATE 87 ****
     eol ::= {13} {10} [registerNewline] <%> // $
     eol ::= {13} {10} [registerNewline] <%> // token
     eol ::= {13} {10} [registerNewline] <%> // white
     -----------------------
-        $ => reduce: 117
-        "=" => reduce: 117
-        {"0".."9"} => reduce: 117
-        token => reduce: 117
-        {13} => reduce: 117
-        "+" => reduce: 117
-        {9 12} => reduce: 117
-        {10} => reduce: 117
-        "'" => reduce: 117
-        white => reduce: 117
-        "e" => reduce: 117
-        {255} => reduce: 117
-        "%" => reduce: 117
-        "c" => reduce: 117
-        "b" => reduce: 117
-        "!" => reduce: 117
-        " " => reduce: 117
-**** STATE 87 ****
+        $ => reduce: 119
+        "=" => reduce: 119
+        {"0".."9"} => reduce: 119
+        token => reduce: 119
+        {13} => reduce: 119
+        "+" => reduce: 119
+        {9 12} => reduce: 119
+        {10} => reduce: 119
+        "'" => reduce: 119
+        white => reduce: 119
+        "e" => reduce: 119
+        {255} => reduce: 119
+        "&" => reduce: 119
+        "%" => reduce: 119
+        "c" => reduce: 119
+        "b" => reduce: 119
+        "!" => reduce: 119
+        " " => reduce: 119
+**** STATE 88 ****
+    `&& ::= "&" "&" <%> white* // $
+    `&& ::= "&" "&" <%> white* // token
+    `&& ::= "&" "&" [white*] <%> // $
+    `&& ::= "&" "&" [white*] <%> // token
+    -----------------------
+    eol ::= <%> {10} [registerNewline] // $
+    eol ::= <%> {10} [registerNewline] // token
+    eol ::= <%> {10} [registerNewline] // white
+    eol ::= <%> {13} !10 [registerNewline] // $
+    eol ::= <%> {13} !10 [registerNewline] // token
+    eol ::= <%> {13} !10 [registerNewline] // white
+    eol ::= <%> {13} {10} [registerNewline] // $
+    eol ::= <%> {13} {10} [registerNewline] // token
+    eol ::= <%> {13} {10} [registerNewline] // white
+    white ::= <%> eol // $
+    white ::= <%> eol // token
+    white ::= <%> eol // white
+    white ::= <%> {9 12 " "} // $
+    white ::= <%> {9 12 " "} // token
+    white ::= <%> {9 12 " "} // white
+    white* ::= <%> white* white // $
+    white* ::= <%> white* white // token
+    white* ::= <%> white* white // white
+    white* ::= [white*] <%> white // $
+    white* ::= [white*] <%> white // token
+    white* ::= [white*] <%> white // white
+        "=" => reduce: 106
+        $ => reduce: 106
+        {"0".."9"} => reduce: 106
+        token => reduce: 106
+        eol => shift: 142
+        {13} => shift: 50
+        "+" => reduce: 106
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 138
+        "'" => reduce: 106
+        "e" => reduce: 106
+        white => shift: 155
+        {255} => reduce: 106
+        "&" => reduce: 106
+        "%" => reduce: 106
+        "c" => reduce: 106
+        "b" => reduce: 106
+        "!" => reduce: 106
+        " " => shift: 102
+**** STATE 89 ****
     token ::= [#] `do <%> // $
     token ::= [#] `do <%> // token
     -----------------------
@@ -3004,11 +3135,12 @@
         "'" => reduce: 32
         "e" => reduce: 32
         {255} => reduce: 32
+        "&" => reduce: 32
         "%" => reduce: 32
         "c" => reduce: 32
         "b" => reduce: 32
         "!" => reduce: 32
-**** STATE 88 ****
+**** STATE 90 ****
     token ::= [#] `= <%> // $
     token ::= [#] `= <%> // token
     -----------------------
@@ -3020,11 +3152,12 @@
         "'" => reduce: 69
         "e" => reduce: 69
         {255} => reduce: 69
+        "&" => reduce: 69
         "%" => reduce: 69
         "c" => reduce: 69
         "b" => reduce: 69
         "!" => reduce: 69
-**** STATE 89 ****
+**** STATE 91 ****
     token ::= [#] `while <%> // $
     token ::= [#] `while <%> // token
     -----------------------
@@ -3036,11 +3169,12 @@
         "'" => reduce: 10
         "e" => reduce: 10
         {255} => reduce: 10
+        "&" => reduce: 10
         "%" => reduce: 10
         "c" => reduce: 10
         "b" => reduce: 10
         "!" => reduce: 10
-**** STATE 90 ****
+**** STATE 92 ****
     token ::= [#] `% <%> // $
     token ::= [#] `% <%> // token
     -----------------------
@@ -3052,44 +3186,46 @@
         "'" => reduce: 60
         "e" => reduce: 60
         {255} => reduce: 60
+        "&" => reduce: 60
         "%" => reduce: 60
         "c" => reduce: 60
         "b" => reduce: 60
         "!" => reduce: 60
-**** STATE 91 ****
+**** STATE 93 ****
     white* ::= white* white <%> // $
     white* ::= white* white <%> // $$0
     white* ::= white* white <%> // white
     -----------------------
-        "=" => reduce: 198
-        $ => reduce: 198
-        {"0".."9"} => reduce: 198
-        $$0 => reduce: 198
-        {13} => reduce: 198
-        "+" => reduce: 198
-        {9 12} => reduce: 198
-        {10} => reduce: 198
-        "'" => reduce: 198
-        white => reduce: 198
-        "e" => reduce: 198
-        {255} => reduce: 198
-        "%" => reduce: 198
-        "c" => reduce: 198
-        "b" => reduce: 198
-        "!" => reduce: 198
-        " " => reduce: 198
-**** STATE 92 ****
+        "=" => reduce: 199
+        $ => reduce: 199
+        {"0".."9"} => reduce: 199
+        $$0 => reduce: 199
+        {13} => reduce: 199
+        "+" => reduce: 199
+        {9 12} => reduce: 199
+        {10} => reduce: 199
+        "'" => reduce: 199
+        white => reduce: 199
+        "e" => reduce: 199
+        {255} => reduce: 199
+        "&" => reduce: 199
+        "%" => reduce: 199
+        "c" => reduce: 199
+        "b" => reduce: 199
+        "!" => reduce: 199
+        " " => reduce: 199
+**** STATE 94 ****
     `class ::= "c" "l" "a" <%> "s" "s" !idChar [white*] // $
     `class ::= "c" "l" "a" <%> "s" "s" !idChar [white*] // token
     `class ::= "c" "l" "a" <%> "s" "s" !idChar white* // $
     `class ::= "c" "l" "a" <%> "s" "s" !idChar white* // token
     -----------------------
         "s" => shift: 10
-**** STATE 93 ****
+**** STATE 95 ****
     $$start ::= start <%> // $
     -----------------------
         $ => reduce: 0
-**** STATE 94 ****
+**** STATE 96 ****
     token ::= [#] `[ <%> // $
     token ::= [#] `[ <%> // token
     -----------------------
@@ -3101,11 +3237,12 @@
         "'" => reduce: 71
         "e" => reduce: 71
         {255} => reduce: 71
+        "&" => reduce: 71
         "%" => reduce: 71
         "c" => reduce: 71
         "b" => reduce: 71
         "!" => reduce: 71
-**** STATE 95 ****
+**** STATE 97 ****
     `class ::= "c" "l" "a" "s" "s" !idChar white* <%> // $
     `class ::= "c" "l" "a" "s" "s" !idChar white* <%> // token
     white* ::= white* <%> white // $
@@ -3131,21 +3268,22 @@
         "=" => reduce: 89
         {"0".."9"} => reduce: 89
         token => reduce: 89
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 89
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 89
-        white => shift: 132
+        white => shift: 134
         "e" => reduce: 89
         {255} => reduce: 89
+        "&" => reduce: 89
         "%" => reduce: 89
         "c" => reduce: 89
         "b" => reduce: 89
         "!" => reduce: 89
-        " " => shift: 100
-**** STATE 96 ****
+        " " => shift: 102
+**** STATE 98 ****
     `!= ::= "!" "=" <%> white* // $
     `!= ::= "!" "=" <%> white* // token
     `!= ::= "!" "=" [white*] <%> // $
@@ -3176,22 +3314,23 @@
         $ => reduce: 96
         {"0".."9"} => reduce: 96
         token => reduce: 96
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 96
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 151
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 154
         "'" => reduce: 96
         "e" => reduce: 96
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 96
+        "&" => reduce: 96
         "%" => reduce: 96
         "c" => reduce: 96
         "b" => reduce: 96
         "!" => reduce: 96
-        " " => shift: 100
-**** STATE 97 ****
+        " " => shift: 102
+**** STATE 99 ****
     token ::= [#] `break <%> // $
     token ::= [#] `break <%> // token
     -----------------------
@@ -3203,64 +3342,67 @@
         "'" => reduce: 14
         "e" => reduce: 14
         {255} => reduce: 14
+        "&" => reduce: 14
         "%" => reduce: 14
         "c" => reduce: 14
         "b" => reduce: 14
         "!" => reduce: 14
-**** STATE 98 ****
+**** STATE 100 ****
     digit+ ::= digit !digit <!digit%> // $
     digit+ ::= digit !digit <!digit%> // token
     digit+ ::= digit !digit <!digit%> // white*
     -----------------------
-        "=" => reduce: 200
-        $ => reduce: 200
-        {"0".."9"} => reduce: 200
-        token => reduce: 200
-        {13} => reduce: 200
-        "+" => reduce: 200
-        {9 12} => reduce: 200
-        {10} => reduce: 200
-        white* => reduce: 200
-        "'" => reduce: 200
-        "e" => reduce: 200
-        {255} => reduce: 200
-        "%" => reduce: 200
-        "c" => reduce: 200
-        "b" => reduce: 200
-        "!" => reduce: 200
-        " " => reduce: 200
-**** STATE 99 ****
+        "=" => reduce: 201
+        $ => reduce: 201
+        {"0".."9"} => reduce: 201
+        token => reduce: 201
+        {13} => reduce: 201
+        "+" => reduce: 201
+        {9 12} => reduce: 201
+        {10} => reduce: 201
+        white* => reduce: 201
+        "'" => reduce: 201
+        "e" => reduce: 201
+        {255} => reduce: 201
+        "&" => reduce: 201
+        "%" => reduce: 201
+        "c" => reduce: 201
+        "b" => reduce: 201
+        "!" => reduce: 201
+        " " => reduce: 201
+**** STATE 101 ****
     digit+ ::= digit !digit <%!digit> // $
     digit+ ::= digit !digit <%!digit> // token
     digit+ ::= digit !digit <%!digit> // white*
     digit+ ::= digit <%> // digit
     -----------------------
-        !digit => move: 98
-        !!digit => move: 171
-        <test> => move: 105
-**** STATE 100 ****
+        !digit => move: 100
+        !!digit => move: 174
+        <test> => move: 107
+**** STATE 102 ****
     white ::= {9 12 " "} <%> // $
     white ::= {9 12 " "} <%> // token
     white ::= {9 12 " "} <%> // white
     -----------------------
-        $ => reduce: 114
-        "=" => reduce: 114
-        {"0".."9"} => reduce: 114
-        token => reduce: 114
-        {13} => reduce: 114
-        {9 12} => reduce: 114
-        "+" => reduce: 114
-        {10} => reduce: 114
-        white => reduce: 114
-        "'" => reduce: 114
-        "e" => reduce: 114
-        {255} => reduce: 114
-        "%" => reduce: 114
-        "c" => reduce: 114
-        "b" => reduce: 114
-        "!" => reduce: 114
-        " " => reduce: 114
-**** STATE 101 ****
+        $ => reduce: 116
+        "=" => reduce: 116
+        {"0".."9"} => reduce: 116
+        token => reduce: 116
+        {13} => reduce: 116
+        {9 12} => reduce: 116
+        "+" => reduce: 116
+        {10} => reduce: 116
+        white => reduce: 116
+        "'" => reduce: 116
+        "e" => reduce: 116
+        {255} => reduce: 116
+        "&" => reduce: 116
+        "%" => reduce: 116
+        "c" => reduce: 116
+        "b" => reduce: 116
+        "!" => reduce: 116
+        " " => reduce: 116
+**** STATE 103 ****
     digit+ ::= digit+ <!!digit%> digit !digit // $
     digit+ ::= digit+ <!!digit%> digit !digit // token
     digit+ ::= digit+ <!!digit%> digit !digit // white*
@@ -3271,13 +3413,13 @@
     digit ::= <!!digit%> {"0".."9"} !digit // white*
     digit ::= <!!digit%> {"0".."9"} // digit
         {"0".."9"} => shift: 18
-        digit => shift: 117
-**** STATE 102 ****
+        digit => shift: 119
+**** STATE 104 ****
     digit+ ::= digit+ digit <!!digit%> // digit
     -----------------------
-        digit => reduce: 201
-        {"0".."9"} => reduce: 201
-**** STATE 103 ****
+        digit => reduce: 202
+        {"0".."9"} => reduce: 202
+**** STATE 105 ****
     start ::= white* <%> $$0 // $
     start ::= white* [token*] <%> // $
     white* ::= white* <%> white // $
@@ -3303,6 +3445,10 @@
     `% ::= <%> "%" [white*] // token
     `% ::= <%> "%" white* // $
     `% ::= <%> "%" white* // token
+    `&& ::= <%> "&" "&" [white*] // $
+    `&& ::= <%> "&" "&" [white*] // token
+    `&& ::= <%> "&" "&" white* // $
+    `&& ::= <%> "&" "&" white* // token
     `+ ::= <%> "+" [white*] // $
     `+ ::= <%> "+" [white*] // token
     `+ ::= <%> "+" white* // $
@@ -3526,122 +3672,123 @@
     white ::= <%> {9 12 " "} // $
     white ::= <%> {9 12 " "} // $$0
     white ::= <%> {9 12 " "} // white
-        `null => shift: 143
-        `throw => shift: 64
+        `null => shift: 146
+        `throw => shift: 65
         `instanceof => shift: 34
-        `int => shift: 120
-        `switch => shift: 72
-        `extends => shift: 112
+        `int => shift: 122
+        `switch => shift: 73
+        `extends => shift: 114
         `long => shift: 29
-        `if => shift: 41
+        `if => shift: 42
         `try => shift: 4
-        `> => shift: 44
+        `> => shift: 45
         "!" => shift: 24
-        `= => shift: 88
+        `= => shift: 90
         `< => shift: 19
-        `; => shift: 56
+        `; => shift: 57
         `: => shift: 31
-        `volatile => shift: 122
+        `volatile => shift: 124
         `public => shift: 20
         INT_LITERAL => shift: 13
-        `protected => shift: 107
-        `false => shift: 165
-        `transient => shift: 160
-        `final => shift: 65
-        `/ => shift: 77
-        `. => shift: 52
+        `protected => shift: 109
+        `false => shift: 168
+        `transient => shift: 163
+        `final => shift: 66
+        `/ => shift: 78
+        `. => shift: 53
         `- => shift: 22
-        `strictfp => shift: 141
-        `, => shift: 68
-        `+ => shift: 130
-        `* => shift: 47
-        `) => shift: 127
+        `strictfp => shift: 144
+        `, => shift: 69
+        `+ => shift: 132
+        `* => shift: 48
+        `) => shift: 129
         {"0".."9"} => shift: 18
-        `( => shift: 50
-        `% => shift: 90
-        `boolean => shift: 51
-        `! => shift: 137
-        `return => shift: 55
-        `break => shift: 97
-        " " => shift: 81
-        `for => shift: 131
-        `implements => shift: 157
+        `( => shift: 51
+        `% => shift: 92
+        `boolean => shift: 52
+        `! => shift: 140
+        `return => shift: 56
+        `break => shift: 99
+        " " => shift: 82
+        `for => shift: 133
+        `implements => shift: 160
         `new => shift: 5
-        `assert => shift: 57
-        white => shift: 91
+        `assert => shift: 58
+        white => shift: 93
         `true => shift: 11
-        `native => shift: 70
-        "'" => shift: 78
+        `native => shift: 71
+        "'" => shift: 79
         $ => reduce: 3
-        `this => shift: 113
-        `class => shift: 148
-        `void => shift: 159
-        CHARACTER_LITERAL => shift: 110
-        `char => shift: 168
-        `goto => shift: 42
-        `while => shift: 89
+        `this => shift: 115
+        `class => shift: 151
+        `void => shift: 162
+        CHARACTER_LITERAL => shift: 112
+        `char => shift: 171
+        `goto => shift: 43
+        `while => shift: 91
         `>= => shift: 28
         digit++ => shift: 30
-        `&& => shift: 67
+        `&& => shift: 68
         eol => shift: 8
-        `package => shift: 45
-        {9 12} => shift: 81
-        `import => shift: 170
+        "&" => shift: 38
+        `package => shift: 46
+        {9 12} => shift: 82
+        `import => shift: 173
         `throws => shift: 26
-        `else => shift: 169
-        "e" => shift: 115
+        `else => shift: 172
+        "e" => shift: 117
         `== => shift: 27
-        `-- => shift: 46
-        "=" => shift: 146
-        sq => shift: 111
-        `interface => shift: 40
-        "%" => shift: 118
-        {13} => shift: 73
-        token* => shift: 83
-        `do => shift: 87
-        `default => shift: 74
-        digit => shift: 99
-        `short => shift: 153
-        `|| => shift: 84
+        `-- => shift: 47
+        "=" => shift: 149
+        sq => shift: 113
+        `interface => shift: 41
+        "%" => shift: 120
+        {13} => shift: 74
+        token* => shift: 84
+        `do => shift: 89
+        `default => shift: 75
+        digit => shift: 101
+        `short => shift: 156
+        `|| => shift: 85
         `case => shift: 16
-        `<= => shift: 154
-        token => shift: 124
+        `<= => shift: 157
+        token => shift: 126
         `super => shift: 32
-        `enum => shift: 66
+        `enum => shift: 67
         STRING_LITERAL => shift: 36
         $$0 => shift: 2
-        `synchronized => shift: 133
-        `double => shift: 53
+        `synchronized => shift: 135
+        `double => shift: 54
         "c" => shift: 33
-        `private => shift: 60
+        `private => shift: 61
         `++ => shift: 6
-        "+" => shift: 109
-        `} => shift: 147
-        `{ => shift: 156
-        `continue => shift: 54
-        `float => shift: 106
-        ID => shift: 82
+        "+" => shift: 111
+        `} => shift: 150
+        `{ => shift: 159
+        `continue => shift: 55
+        `float => shift: 108
+        ID => shift: 83
         `catch => shift: 12
-        `static => shift: 134
-        digit+ => shift: 129
+        `static => shift: 136
+        digit+ => shift: 131
         `const => shift: 15
-        `finally => shift: 135
+        `finally => shift: 137
         `byte => shift: 14
-        "b" => shift: 150
-        `!= => shift: 69
-        `] => shift: 125
-        `[ => shift: 94
-        `abstract => shift: 128
+        "b" => shift: 153
+        `!= => shift: 70
+        `] => shift: 127
+        `[ => shift: 96
+        `abstract => shift: 130
         {10} => shift: 17
-**** STATE 104 ****
+**** STATE 106 ****
     idChar ::= letter <%> // $NT
     -----------------------
-        $NT => reduce: 109
-**** STATE 105 ****
+        $NT => reduce: 111
+**** STATE 107 ****
     digit ::= <%> {"0".."9"} // $NT
     -----------------------
-        {"0".."9"} => shift: 166
-**** STATE 106 ****
+        {"0".."9"} => shift: 169
+**** STATE 108 ****
     token ::= [#] `float <%> // $
     token ::= [#] `float <%> // token
     -----------------------
@@ -3653,11 +3800,12 @@
         "'" => reduce: 37
         "e" => reduce: 37
         {255} => reduce: 37
+        "&" => reduce: 37
         "%" => reduce: 37
         "c" => reduce: 37
         "b" => reduce: 37
         "!" => reduce: 37
-**** STATE 107 ****
+**** STATE 109 ****
     token ::= [#] `protected <%> // $
     token ::= [#] `protected <%> // token
     -----------------------
@@ -3669,11 +3817,12 @@
         "'" => reduce: 46
         "e" => reduce: 46
         {255} => reduce: 46
+        "&" => reduce: 46
         "%" => reduce: 46
         "c" => reduce: 46
         "b" => reduce: 46
         "!" => reduce: 46
-**** STATE 108 ****
+**** STATE 110 ****
     INT_LITERAL ::= [#] digit++ white* <%> // $
     INT_LITERAL ::= [#] digit++ white* <%> // token
     white* ::= white* <%> white // $
@@ -3695,25 +3844,26 @@
     white ::= <%> {9 12 " "} // $
     white ::= <%> {9 12 " "} // token
     white ::= <%> {9 12 " "} // white
-        $ => reduce: 105
-        "=" => reduce: 105
-        {"0".."9"} => reduce: 105
-        token => reduce: 105
-        eol => shift: 139
-        {13} => shift: 49
-        "+" => reduce: 105
-        {9 12} => shift: 100
-        {10} => shift: 76
-        "'" => reduce: 105
-        white => shift: 132
-        "e" => reduce: 105
-        {255} => reduce: 105
-        "%" => reduce: 105
-        "c" => reduce: 105
-        "b" => reduce: 105
-        "!" => reduce: 105
-        " " => shift: 100
-**** STATE 109 ****
+        $ => reduce: 107
+        "=" => reduce: 107
+        {"0".."9"} => reduce: 107
+        token => reduce: 107
+        eol => shift: 142
+        {13} => shift: 50
+        "+" => reduce: 107
+        {9 12} => shift: 102
+        {10} => shift: 77
+        "'" => reduce: 107
+        white => shift: 134
+        "e" => reduce: 107
+        {255} => reduce: 107
+        "&" => reduce: 107
+        "%" => reduce: 107
+        "c" => reduce: 107
+        "b" => reduce: 107
+        "!" => reduce: 107
+        " " => shift: 102
+**** STATE 111 ****
     `+ ::= "+" <%> white* // $
     `+ ::= "+" <%> white* // token
     `+ ::= "+" [white*] <%> // $
@@ -3744,22 +3894,23 @@
         $ => reduce: 98
         {"0".."9"} => reduce: 98
         token => reduce: 98
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 98
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 155
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 158
         "'" => reduce: 98
         "e" => reduce: 98
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 98
+        "&" => reduce: 98
         "%" => reduce: 98
         "c" => reduce: 98
         "b" => reduce: 98
         "!" => reduce: 98
-        " " => shift: 100
-**** STATE 110 ****
+        " " => shift: 102
+**** STATE 112 ****
     token ::= [#] CHARACTER_LITERAL <%> // $
     token ::= [#] CHARACTER_LITERAL <%> // token
     -----------------------
@@ -3771,11 +3922,12 @@
         "'" => reduce: 88
         "e" => reduce: 88
         {255} => reduce: 88
+        "&" => reduce: 88
         "%" => reduce: 88
         "c" => reduce: 88
         "b" => reduce: 88
         "!" => reduce: 88
-**** STATE 111 ****
+**** STATE 113 ****
     CHARACTER_LITERAL ::= sq <%> printable sq // $
     CHARACTER_LITERAL ::= sq <%> printable sq // token
     -----------------------
@@ -3788,18 +3940,19 @@
         "n" => shift: 35
         "l" => shift: 35
         "+" => shift: 35
-        printable => shift: 75
+        printable => shift: 76
         "'" => shift: 35
         "e" => shift: 35
+        "&" => shift: 35
         "%" => shift: 35
         "c" => shift: 35
         "b" => shift: 35
-        {'"'.."$" "&" "(".."*" ",".."/" ":".."<" ">".."@" "[".."^" "`" "{".."~"} => shift: 35
         "a" => shift: 35
+        {'"'.."$" "(".."*" ",".."/" ":".."<" ">".."@" "[".."^" "`" "{".."~"} => shift: 35
         "_" => shift: 35
         "!" => shift: 35
         " " => shift: 35
-**** STATE 112 ****
+**** STATE 114 ****
     token ::= [#] `extends <%> // $
     token ::= [#] `extends <%> // token
     -----------------------
@@ -3811,11 +3964,12 @@
         "'" => reduce: 7
         "e" => reduce: 7
         {255} => reduce: 7
+        "&" => reduce: 7
         "%" => reduce: 7
         "c" => reduce: 7
         "b" => reduce: 7
         "!" => reduce: 7
-**** STATE 113 ****
+**** STATE 115 ****
     token ::= [#] `this <%> // $
     token ::= [#] `this <%> // token
     -----------------------
@@ -3827,65 +3981,68 @@
         "'" => reduce: 15
         "e" => reduce: 15
         {255} => reduce: 15
+        "&" => reduce: 15
         "%" => reduce: 15
         "c" => reduce: 15
         "b" => reduce: 15
         "!" => reduce: 15
-**** STATE 114 ****
+**** STATE 116 ****
     digit++ ::= digit+ !digit <!digit%> // $
     digit++ ::= digit+ !digit <!digit%> // token
     digit++ ::= digit+ !digit <!digit%> // white*
     -----------------------
-        "=" => reduce: 197
-        $ => reduce: 197
-        {"0".."9"} => reduce: 197
-        token => reduce: 197
-        {13} => reduce: 197
-        "+" => reduce: 197
-        {9 12} => reduce: 197
-        {10} => reduce: 197
-        white* => reduce: 197
-        "'" => reduce: 197
-        "e" => reduce: 197
-        {255} => reduce: 197
-        "%" => reduce: 197
-        "c" => reduce: 197
-        "b" => reduce: 197
-        "!" => reduce: 197
-        " " => reduce: 197
-**** STATE 115 ****
+        "=" => reduce: 198
+        $ => reduce: 198
+        {"0".."9"} => reduce: 198
+        token => reduce: 198
+        {13} => reduce: 198
+        "+" => reduce: 198
+        {9 12} => reduce: 198
+        {10} => reduce: 198
+        white* => reduce: 198
+        "'" => reduce: 198
+        "e" => reduce: 198
+        {255} => reduce: 198
+        "&" => reduce: 198
+        "%" => reduce: 198
+        "c" => reduce: 198
+        "b" => reduce: 198
+        "!" => reduce: 198
+        " " => reduce: 198
+**** STATE 117 ****
     `else ::= "e" <%> "l" "s" "e" !idChar [white*] // $
     `else ::= "e" <%> "l" "s" "e" !idChar [white*] // token
     `else ::= "e" <%> "l" "s" "e" !idChar white* // $
     `else ::= "e" <%> "l" "s" "e" !idChar white* // token
     -----------------------
-        "l" => shift: 163
-**** STATE 116 ****
+        "l" => shift: 166
+**** STATE 118 ****
     sq ::= "'" <%> // $
     sq ::= "'" <%> // token
     -----------------------
-        "=" => reduce: 107
-        $ => reduce: 107
-        {"0".."9"} => reduce: 107
-        token => reduce: 107
-        "+" => reduce: 107
-        "'" => reduce: 107
-        "e" => reduce: 107
-        {255} => reduce: 107
-        "%" => reduce: 107
-        "c" => reduce: 107
-        "b" => reduce: 107
-        "!" => reduce: 107
-**** STATE 117 ****
+        "=" => reduce: 109
+        $ => reduce: 109
+        {"0".."9"} => reduce: 109
+        token => reduce: 109
+        "+" => reduce: 109
+        "'" => reduce: 109
+        "e" => reduce: 109
+        {255} => reduce: 109
+        "&" => reduce: 109
+        "%" => reduce: 109
+        "c" => reduce: 109
+        "b" => reduce: 109
+        "!" => reduce: 109
+**** STATE 119 ****
     digit+ ::= digit+ digit !digit <%!digit> // $
     digit+ ::= digit+ digit !digit <%!digit> // token
     digit+ ::= digit+ digit !digit <%!digit> // white*
     digit+ ::= digit+ digit <%> // digit
     -----------------------
-        !digit => move: 140
-        !!digit => move: 102
-        <test> => move: 105
-**** STATE 118 ****
+        !digit => move: 143
+        !!digit => move: 104
+        <test> => move: 107
+**** STATE 120 ****
     `% ::= "%" <%> white* // $
     `% ::= "%" <%> white* // token
     `% ::= "%" [white*] <%> // $
@@ -3916,38 +4073,40 @@
         $ => reduce: 104
         {"0".."9"} => reduce: 104
         token => reduce: 104
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 104
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 48
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 49
         "'" => reduce: 104
         "e" => reduce: 104
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 104
+        "&" => reduce: 104
         "%" => reduce: 104
         "c" => reduce: 104
         "b" => reduce: 104
         "!" => reduce: 104
-        " " => shift: 100
-**** STATE 119 ****
+        " " => shift: 102
+**** STATE 121 ****
     CHARACTER_LITERAL ::= sq printable sq <%> // $
     CHARACTER_LITERAL ::= sq printable sq <%> // token
     -----------------------
-        $ => reduce: 108
-        "=" => reduce: 108
-        {"0".."9"} => reduce: 108
-        token => reduce: 108
-        "+" => reduce: 108
-        "'" => reduce: 108
-        "e" => reduce: 108
-        {255} => reduce: 108
-        "%" => reduce: 108
-        "c" => reduce: 108
-        "b" => reduce: 108
-        "!" => reduce: 108
-**** STATE 120 ****
+        $ => reduce: 110
+        "=" => reduce: 110
+        {"0".."9"} => reduce: 110
+        token => reduce: 110
+        "+" => reduce: 110
+        "'" => reduce: 110
+        "e" => reduce: 110
+        {255} => reduce: 110
+        "&" => reduce: 110
+        "%" => reduce: 110
+        "c" => reduce: 110
+        "b" => reduce: 110
+        "!" => reduce: 110
+**** STATE 122 ****
     token ::= [#] `int <%> // $
     token ::= [#] `int <%> // token
     -----------------------
@@ -3959,11 +4118,12 @@
         "'" => reduce: 9
         "e" => reduce: 9
         {255} => reduce: 9
+        "&" => reduce: 9
         "%" => reduce: 9
         "c" => reduce: 9
         "b" => reduce: 9
         "!" => reduce: 9
-**** STATE 121 ****
+**** STATE 123 ****
     `else ::= "e" "l" "s" "e" !idChar <!idChar%> white* // $
     `else ::= "e" "l" "s" "e" !idChar <!idChar%> white* // token
     `else ::= "e" "l" "s" "e" !idChar [white*] <!idChar%> // $
@@ -3994,22 +4154,23 @@
         $ => reduce: 92
         {"0".."9"} => reduce: 92
         token => reduce: 92
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 92
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 63
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 64
         "'" => reduce: 92
         "e" => reduce: 92
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 92
+        "&" => reduce: 92
         "%" => reduce: 92
         "c" => reduce: 92
         "b" => reduce: 92
         "!" => reduce: 92
-        " " => shift: 100
-**** STATE 122 ****
+        " " => shift: 102
+**** STATE 124 ****
     token ::= [#] `volatile <%> // $
     token ::= [#] `volatile <%> // token
     -----------------------
@@ -4021,11 +4182,12 @@
         "'" => reduce: 57
         "e" => reduce: 57
         {255} => reduce: 57
+        "&" => reduce: 57
         "%" => reduce: 57
         "c" => reduce: 57
         "b" => reduce: 57
         "!" => reduce: 57
-**** STATE 123 ****
+**** STATE 125 ****
     `class ::= "c" "l" "a" "s" "s" !idChar <!idChar%> white* // $
     `class ::= "c" "l" "a" "s" "s" !idChar <!idChar%> white* // token
     `class ::= "c" "l" "a" "s" "s" !idChar [white*] <!idChar%> // $
@@ -4056,38 +4218,40 @@
         $ => reduce: 90
         {"0".."9"} => reduce: 90
         token => reduce: 90
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 90
-        {9 12} => shift: 100
-        {10} => shift: 76
-        white* => shift: 95
+        {9 12} => shift: 102
+        {10} => shift: 77
+        white* => shift: 97
         "'" => reduce: 90
         "e" => reduce: 90
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 90
+        "&" => reduce: 90
         "%" => reduce: 90
         "c" => reduce: 90
         "b" => reduce: 90
         "!" => reduce: 90
-        " " => shift: 100
-**** STATE 124 ****
+        " " => shift: 102
+**** STATE 126 ****
     token* ::= [token*] token <%> // $
     token* ::= [token*] token <%> // token
     -----------------------
-        "=" => reduce: 196
-        $ => reduce: 196
-        {"0".."9"} => reduce: 196
-        token => reduce: 196
-        "+" => reduce: 196
-        "'" => reduce: 196
-        "e" => reduce: 196
-        {255} => reduce: 196
-        "%" => reduce: 196
-        "c" => reduce: 196
-        "b" => reduce: 196
-        "!" => reduce: 196
-**** STATE 125 ****
+        "=" => reduce: 197
+        $ => reduce: 197
+        {"0".."9"} => reduce: 197
+        token => reduce: 197
+        "+" => reduce: 197
+        "'" => reduce: 197
+        "e" => reduce: 197
+        {255} => reduce: 197
+        "&" => reduce: 197
+        "%" => reduce: 197
+        "c" => reduce: 197
+        "b" => reduce: 197
+        "!" => reduce: 197
+**** STATE 127 ****
     token ::= [#] `] <%> // $
     token ::= [#] `] <%> // token
     -----------------------
@@ -4099,11 +4263,12 @@
         "'" => reduce: 72
         "e" => reduce: 72
         {255} => reduce: 72
+        "&" => reduce: 72
         "%" => reduce: 72
         "c" => reduce: 72
         "b" => reduce: 72
         "!" => reduce: 72
-**** STATE 126 ****
+**** STATE 128 ****
     `! ::= "!" !"=" <!"="%> white* // $
     `! ::= "!" !"=" <!"="%> white* // token
     `! ::= "!" !"=" [white*] <!"="%> // $
@@ -4134,22 +4299,23 @@
         "=" => reduce: 100
         {"0".."9"} => reduce: 100
         token => reduce: 100
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 100
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         white* => shift: 3
         "'" => reduce: 100
         "e" => reduce: 100
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 100
+        "&" => reduce: 100
         "%" => reduce: 100
         "c" => reduce: 100
         "b" => reduce: 100
         "!" => reduce: 100
-        " " => shift: 100
-**** STATE 127 ****
+        " " => shift: 102
+**** STATE 129 ****
     token ::= [#] `) <%> // $
     token ::= [#] `) <%> // token
     -----------------------
@@ -4161,11 +4327,12 @@
         "'" => reduce: 64
         "e" => reduce: 64
         {255} => reduce: 64
+        "&" => reduce: 64
         "%" => reduce: 64
         "c" => reduce: 64
         "b" => reduce: 64
         "!" => reduce: 64
-**** STATE 128 ****
+**** STATE 130 ****
     token ::= [#] `abstract <%> // $
     token ::= [#] `abstract <%> // token
     -----------------------
@@ -4177,11 +4344,12 @@
         "'" => reduce: 23
         "e" => reduce: 23
         {255} => reduce: 23
+        "&" => reduce: 23
         "%" => reduce: 23
         "c" => reduce: 23
         "b" => reduce: 23
         "!" => reduce: 23
-**** STATE 129 ****
+**** STATE 131 ****
     digit+ ::= digit+ <%> digit !digit // $
     digit+ ::= digit+ <%> digit !digit // token
     digit+ ::= digit+ <%> digit !digit // white*
@@ -4194,10 +4362,10 @@
     digit ::= <%> {"0".."9"} !digit // token
     digit ::= <%> {"0".."9"} !digit // white*
     digit ::= <%> {"0".."9"} // digit
-        !digit => move: 114
-        !!digit => move: 101
-        <test> => move: 105
-**** STATE 130 ****
+        !digit => move: 116
+        !!digit => move: 103
+        <test> => move: 107
+**** STATE 132 ****
     token ::= [#] `+ <%> // $
     token ::= [#] `+ <%> // token
     -----------------------
@@ -4209,11 +4377,12 @@
         "'" => reduce: 68
         "e" => reduce: 68
         {255} => reduce: 68
+        "&" => reduce: 68
         "%" => reduce: 68
         "c" => reduce: 68
         "b" => reduce: 68
         "!" => reduce: 68
-**** STATE 131 ****
+**** STATE 133 ****
     token ::= [#] `for <%> // $
     token ::= [#] `for <%> // token
     -----------------------
@@ -4225,33 +4394,35 @@
         "'" => reduce: 13
         "e" => reduce: 13
         {255} => reduce: 13
+        "&" => reduce: 13
         "%" => reduce: 13
         "c" => reduce: 13
         "b" => reduce: 13
         "!" => reduce: 13
-**** STATE 132 ****
+**** STATE 134 ****
     white* ::= white* white <%> // $
     white* ::= white* white <%> // token
     white* ::= white* white <%> // white
     -----------------------
-        "=" => reduce: 198
-        $ => reduce: 198
-        {"0".."9"} => reduce: 198
-        token => reduce: 198
-        {13} => reduce: 198
-        "+" => reduce: 198
-        {9 12} => reduce: 198
-        {10} => reduce: 198
-        "'" => reduce: 198
-        white => reduce: 198
-        "e" => reduce: 198
-        {255} => reduce: 198
-        "%" => reduce: 198
-        "c" => reduce: 198
-        "b" => reduce: 198
-        "!" => reduce: 198
-        " " => reduce: 198
-**** STATE 133 ****
+        "=" => reduce: 199
+        $ => reduce: 199
+        {"0".."9"} => reduce: 199
+        token => reduce: 199
+        {13} => reduce: 199
+        "+" => reduce: 199
+        {9 12} => reduce: 199
+        {10} => reduce: 199
+        "'" => reduce: 199
+        white => reduce: 199
+        "e" => reduce: 199
+        {255} => reduce: 199
+        "&" => reduce: 199
+        "%" => reduce: 199
+        "c" => reduce: 199
+        "b" => reduce: 199
+        "!" => reduce: 199
+        " " => reduce: 199
+**** STATE 135 ****
     token ::= [#] `synchronized <%> // $
     token ::= [#] `synchronized <%> // token
     -----------------------
@@ -4263,11 +4434,12 @@
         "'" => reduce: 52
         "e" => reduce: 52
         {255} => reduce: 52
+        "&" => reduce: 52
         "%" => reduce: 52
         "c" => reduce: 52
         "b" => reduce: 52
         "!" => reduce: 52
-**** STATE 134 ****
+**** STATE 136 ****
     token ::= [#] `static <%> // $
     token ::= [#] `static <%> // token
     -----------------------
@@ -4279,11 +4451,12 @@
         "'" => reduce: 49
         "e" => reduce: 49
         {255} => reduce: 49
+        "&" => reduce: 49
         "%" => reduce: 49
         "c" => reduce: 49
         "b" => reduce: 49
         "!" => reduce: 49
-**** STATE 135 ****
+**** STATE 137 ****
     token ::= [#] `finally <%> // $
     token ::= [#] `finally <%> // token
     -----------------------
@@ -4295,33 +4468,76 @@
         "'" => reduce: 36
         "e" => reduce: 36
         {255} => reduce: 36
+        "&" => reduce: 36
         "%" => reduce: 36
         "c" => reduce: 36
         "b" => reduce: 36
         "!" => reduce: 36
-**** STATE 136 ****
+**** STATE 138 ****
+    `&& ::= "&" "&" white* <%> // $
+    `&& ::= "&" "&" white* <%> // token
+    white* ::= white* <%> white // $
+    white* ::= white* <%> white // token
+    white* ::= white* <%> white // white
+    -----------------------
+    eol ::= <%> {10} [registerNewline] // $
+    eol ::= <%> {10} [registerNewline] // token
+    eol ::= <%> {10} [registerNewline] // white
+    eol ::= <%> {13} !10 [registerNewline] // $
+    eol ::= <%> {13} !10 [registerNewline] // token
+    eol ::= <%> {13} !10 [registerNewline] // white
+    eol ::= <%> {13} {10} [registerNewline] // $
+    eol ::= <%> {13} {10} [registerNewline] // token
+    eol ::= <%> {13} {10} [registerNewline] // white
+    white ::= <%> eol // $
+    white ::= <%> eol // token
+    white ::= <%> eol // white
+    white ::= <%> {9 12 " "} // $
+    white ::= <%> {9 12 " "} // token
+    white ::= <%> {9 12 " "} // white
+        "=" => reduce: 105
+        $ => reduce: 105
+        {"0".."9"} => reduce: 105
+        token => reduce: 105
+        eol => shift: 142
+        {13} => shift: 50
+        "+" => reduce: 105
+        {9 12} => shift: 102
+        {10} => shift: 77
+        "'" => reduce: 105
+        "e" => reduce: 105
+        white => shift: 134
+        {255} => reduce: 105
+        "&" => reduce: 105
+        "%" => reduce: 105
+        "c" => reduce: 105
+        "b" => reduce: 105
+        "!" => reduce: 105
+        " " => shift: 102
+**** STATE 139 ****
     eol ::= {13} {10} [registerNewline] <%> // $
     eol ::= {13} {10} [registerNewline] <%> // $$0
     eol ::= {13} {10} [registerNewline] <%> // white
     -----------------------
-        $ => reduce: 117
-        "=" => reduce: 117
-        {"0".."9"} => reduce: 117
-        $$0 => reduce: 117
-        {13} => reduce: 117
-        {9 12} => reduce: 117
-        "+" => reduce: 117
-        {10} => reduce: 117
-        white => reduce: 117
-        "'" => reduce: 117
-        "e" => reduce: 117
-        {255} => reduce: 117
-        "%" => reduce: 117
-        "c" => reduce: 117
-        "b" => reduce: 117
-        "!" => reduce: 117
-        " " => reduce: 117
-**** STATE 137 ****
+        $ => reduce: 119
+        "=" => reduce: 119
+        {"0".."9"} => reduce: 119
+        $$0 => reduce: 119
+        {13} => reduce: 119
+        {9 12} => reduce: 119
+        "+" => reduce: 119
+        {10} => reduce: 119
+        white => reduce: 119
+        "'" => reduce: 119
+        "e" => reduce: 119
+        {255} => reduce: 119
+        "&" => reduce: 119
+        "%" => reduce: 119
+        "c" => reduce: 119
+        "b" => reduce: 119
+        "!" => reduce: 119
+        " " => reduce: 119
+**** STATE 140 ****
     token ::= [#] `! <%> // $
     token ::= [#] `! <%> // token
     -----------------------
@@ -4333,61 +4549,64 @@
         "'" => reduce: 58
         "e" => reduce: 58
         {255} => reduce: 58
+        "&" => reduce: 58
         "%" => reduce: 58
         "c" => reduce: 58
         "b" => reduce: 58
         "!" => reduce: 58
-**** STATE 138 ****
+**** STATE 141 ****
     eol ::= {13} <!!10%> {10} [registerNewline] // $
     eol ::= {13} <!!10%> {10} [registerNewline] // token
     eol ::= {13} <!!10%> {10} [registerNewline] // white
     -----------------------
-        {10} => shift: 86
-**** STATE 139 ****
+        {10} => shift: 87
+**** STATE 142 ****
     white ::= eol <%> // $
     white ::= eol <%> // token
     white ::= eol <%> // white
     -----------------------
-        "=" => reduce: 115
-        $ => reduce: 115
-        {"0".."9"} => reduce: 115
-        token => reduce: 115
-        {13} => reduce: 115
-        {9 12} => reduce: 115
-        "+" => reduce: 115
-        {10} => reduce: 115
-        white => reduce: 115
-        "'" => reduce: 115
-        "e" => reduce: 115
-        {255} => reduce: 115
-        "%" => reduce: 115
-        "c" => reduce: 115
-        "b" => reduce: 115
-        "!" => reduce: 115
-        " " => reduce: 115
-**** STATE 140 ****
+        "=" => reduce: 117
+        $ => reduce: 117
+        {"0".."9"} => reduce: 117
+        token => reduce: 117
+        {13} => reduce: 117
+        {9 12} => reduce: 117
+        "+" => reduce: 117
+        {10} => reduce: 117
+        white => reduce: 117
+        "'" => reduce: 117
+        "e" => reduce: 117
+        {255} => reduce: 117
+        "&" => reduce: 117
+        "%" => reduce: 117
+        "c" => reduce: 117
+        "b" => reduce: 117
+        "!" => reduce: 117
+        " " => reduce: 117
+**** STATE 143 ****
     digit+ ::= digit+ digit !digit <!digit%> // $
     digit+ ::= digit+ digit !digit <!digit%> // token
     digit+ ::= digit+ digit !digit <!digit%> // white*
     -----------------------
-        "=" => reduce: 201
-        $ => reduce: 201
-        {"0".."9"} => reduce: 201
-        token => reduce: 201
-        {13} => reduce: 201
-        "+" => reduce: 201
-        {9 12} => reduce: 201
-        {10} => reduce: 201
-        white* => reduce: 201
-        "'" => reduce: 201
-        "e" => reduce: 201
-        {255} => reduce: 201
-        "%" => reduce: 201
-        "c" => reduce: 201
-        "b" => reduce: 201
-        "!" => reduce: 201
-        " " => reduce: 201
-**** STATE 141 ****
+        "=" => reduce: 202
+        $ => reduce: 202
+        {"0".."9"} => reduce: 202
+        token => reduce: 202
+        {13} => reduce: 202
+        "+" => reduce: 202
+        {9 12} => reduce: 202
+        {10} => reduce: 202
+        white* => reduce: 202
+        "'" => reduce: 202
+        "e" => reduce: 202
+        {255} => reduce: 202
+        "&" => reduce: 202
+        "%" => reduce: 202
+        "c" => reduce: 202
+        "b" => reduce: 202
+        "!" => reduce: 202
+        " " => reduce: 202
+**** STATE 144 ****
     token ::= [#] `strictfp <%> // $
     token ::= [#] `strictfp <%> // token
     -----------------------
@@ -4399,11 +4618,12 @@
         "'" => reduce: 50
         "e" => reduce: 50
         {255} => reduce: 50
+        "&" => reduce: 50
         "%" => reduce: 50
         "c" => reduce: 50
         "b" => reduce: 50
         "!" => reduce: 50
-**** STATE 142 ****
+**** STATE 145 ****
     `boolean ::= "b" "o" "o" "l" "e" "a" "n" !idChar white* <%> // $
     `boolean ::= "b" "o" "o" "l" "e" "a" "n" !idChar white* <%> // token
     white* ::= white* <%> white // $
@@ -4429,21 +4649,22 @@
         $ => reduce: 93
         {"0".."9"} => reduce: 93
         token => reduce: 93
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 93
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 93
         "e" => reduce: 93
-        white => shift: 132
+        white => shift: 134
         {255} => reduce: 93
+        "&" => reduce: 93
         "%" => reduce: 93
         "c" => reduce: 93
         "b" => reduce: 93
         "!" => reduce: 93
-        " " => shift: 100
-**** STATE 143 ****
+        " " => shift: 102
+**** STATE 146 ****
     token ::= [#] `null <%> // $
     token ::= [#] `null <%> // token
     -----------------------
@@ -4455,37 +4676,39 @@
         "'" => reduce: 19
         "e" => reduce: 19
         {255} => reduce: 19
+        "&" => reduce: 19
         "%" => reduce: 19
         "c" => reduce: 19
         "b" => reduce: 19
         "!" => reduce: 19
-**** STATE 144 ****
+**** STATE 147 ****
     white* ::= [white*] white <%> // $
     white* ::= [white*] white <%> // $$0
     white* ::= [white*] white <%> // white
     -----------------------
-        $ => reduce: 199
-        "=" => reduce: 199
-        {"0".."9"} => reduce: 199
-        $$0 => reduce: 199
-        {13} => reduce: 199
-        "+" => reduce: 199
-        {9 12} => reduce: 199
-        {10} => reduce: 199
-        "'" => reduce: 199
-        white => reduce: 199
-        "e" => reduce: 199
-        {255} => reduce: 199
-        "%" => reduce: 199
-        "c" => reduce: 199
-        "b" => reduce: 199
-        "!" => reduce: 199
-        " " => reduce: 199
-**** STATE 145 ****
+        $ => reduce: 200
+        "=" => reduce: 200
+        {"0".."9"} => reduce: 200
+        $$0 => reduce: 200
+        {13} => reduce: 200
+        "+" => reduce: 200
+        {9 12} => reduce: 200
+        {10} => reduce: 200
+        "'" => reduce: 200
+        white => reduce: 200
+        "e" => reduce: 200
+        {255} => reduce: 200
+        "&" => reduce: 200
+        "%" => reduce: 200
+        "c" => reduce: 200
+        "b" => reduce: 200
+        "!" => reduce: 200
+        " " => reduce: 200
+**** STATE 148 ****
     idChar ::= digit <%> // $NT
     -----------------------
-        $NT => reduce: 110
-**** STATE 146 ****
+        $NT => reduce: 112
+**** STATE 149 ****
     `= ::= "=" <%> white* // $
     `= ::= "=" <%> white* // token
     `= ::= "=" [white*] <%> // $
@@ -4516,22 +4739,23 @@
         "=" => reduce: 102
         {"0".."9"} => reduce: 102
         token => reduce: 102
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 102
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         white* => shift: 25
         "'" => reduce: 102
         "e" => reduce: 102
-        white => shift: 152
+        white => shift: 155
         {255} => reduce: 102
+        "&" => reduce: 102
         "%" => reduce: 102
         "c" => reduce: 102
         "b" => reduce: 102
         "!" => reduce: 102
-        " " => shift: 100
-**** STATE 147 ****
+        " " => shift: 102
+**** STATE 150 ****
     token ::= [#] `} <%> // $
     token ::= [#] `} <%> // token
     -----------------------
@@ -4543,11 +4767,12 @@
         "'" => reduce: 66
         "e" => reduce: 66
         {255} => reduce: 66
+        "&" => reduce: 66
         "%" => reduce: 66
         "c" => reduce: 66
         "b" => reduce: 66
         "!" => reduce: 66
-**** STATE 148 ****
+**** STATE 151 ****
     token ::= [#] `class <%> // $
     token ::= [#] `class <%> // token
     -----------------------
@@ -4559,22 +4784,23 @@
         "'" => reduce: 6
         "e" => reduce: 6
         {255} => reduce: 6
+        "&" => reduce: 6
         "%" => reduce: 6
         "c" => reduce: 6
         "b" => reduce: 6
         "!" => reduce: 6
-**** STATE 149 ****
+**** STATE 152 ****
     idChar ::= "_" <%> // $NT
     -----------------------
-        $NT => reduce: 111
-**** STATE 150 ****
+        $NT => reduce: 113
+**** STATE 153 ****
     `boolean ::= "b" <%> "o" "o" "l" "e" "a" "n" !idChar [white*] // $
     `boolean ::= "b" <%> "o" "o" "l" "e" "a" "n" !idChar [white*] // token
     `boolean ::= "b" <%> "o" "o" "l" "e" "a" "n" !idChar white* // $
     `boolean ::= "b" <%> "o" "o" "l" "e" "a" "n" !idChar white* // token
     -----------------------
-        "o" => shift: 59
-**** STATE 151 ****
+        "o" => shift: 60
+**** STATE 154 ****
     `!= ::= "!" "=" white* <%> // $
     `!= ::= "!" "=" white* <%> // token
     white* ::= white* <%> white // $
@@ -4600,43 +4826,45 @@
         $ => reduce: 95
         {"0".."9"} => reduce: 95
         token => reduce: 95
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 95
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 95
         "e" => reduce: 95
-        white => shift: 132
+        white => shift: 134
         {255} => reduce: 95
+        "&" => reduce: 95
         "%" => reduce: 95
         "c" => reduce: 95
         "b" => reduce: 95
         "!" => reduce: 95
-        " " => shift: 100
-**** STATE 152 ****
+        " " => shift: 102
+**** STATE 155 ****
     white* ::= [white*] white <%> // $
     white* ::= [white*] white <%> // token
     white* ::= [white*] white <%> // white
     -----------------------
-        $ => reduce: 199
-        "=" => reduce: 199
-        {"0".."9"} => reduce: 199
-        token => reduce: 199
-        {13} => reduce: 199
-        {9 12} => reduce: 199
-        "+" => reduce: 199
-        {10} => reduce: 199
-        white => reduce: 199
-        "'" => reduce: 199
-        "e" => reduce: 199
-        {255} => reduce: 199
-        "%" => reduce: 199
-        "c" => reduce: 199
-        "b" => reduce: 199
-        "!" => reduce: 199
-        " " => reduce: 199
-**** STATE 153 ****
+        $ => reduce: 200
+        "=" => reduce: 200
+        {"0".."9"} => reduce: 200
+        token => reduce: 200
+        {13} => reduce: 200
+        {9 12} => reduce: 200
+        "+" => reduce: 200
+        {10} => reduce: 200
+        white => reduce: 200
+        "'" => reduce: 200
+        "e" => reduce: 200
+        {255} => reduce: 200
+        "&" => reduce: 200
+        "%" => reduce: 200
+        "c" => reduce: 200
+        "b" => reduce: 200
+        "!" => reduce: 200
+        " " => reduce: 200
+**** STATE 156 ****
     token ::= [#] `short <%> // $
     token ::= [#] `short <%> // token
     -----------------------
@@ -4648,11 +4876,12 @@
         "'" => reduce: 48
         "e" => reduce: 48
         {255} => reduce: 48
+        "&" => reduce: 48
         "%" => reduce: 48
         "c" => reduce: 48
         "b" => reduce: 48
         "!" => reduce: 48
-**** STATE 154 ****
+**** STATE 157 ****
     token ::= [#] `<= <%> // $
     token ::= [#] `<= <%> // token
     -----------------------
@@ -4664,11 +4893,12 @@
         "'" => reduce: 75
         "e" => reduce: 75
         {255} => reduce: 75
+        "&" => reduce: 75
         "%" => reduce: 75
         "c" => reduce: 75
         "b" => reduce: 75
         "!" => reduce: 75
-**** STATE 155 ****
+**** STATE 158 ****
     `+ ::= "+" white* <%> // $
     `+ ::= "+" white* <%> // token
     white* ::= white* <%> white // $
@@ -4694,21 +4924,22 @@
         "=" => reduce: 97
         {"0".."9"} => reduce: 97
         token => reduce: 97
-        eol => shift: 139
-        {13} => shift: 49
+        eol => shift: 142
+        {13} => shift: 50
         "+" => reduce: 97
-        {9 12} => shift: 100
-        {10} => shift: 76
+        {9 12} => shift: 102
+        {10} => shift: 77
         "'" => reduce: 97
-        white => shift: 132
+        white => shift: 134
         "e" => reduce: 97
         {255} => reduce: 97
+        "&" => reduce: 97
         "%" => reduce: 97
         "c" => reduce: 97
         "b" => reduce: 97
         "!" => reduce: 97
-        " " => shift: 100
-**** STATE 156 ****
+        " " => shift: 102
+**** STATE 159 ****
     token ::= [#] `{ <%> // $
     token ::= [#] `{ <%> // token
     -----------------------
@@ -4720,11 +4951,12 @@
         "'" => reduce: 65
         "e" => reduce: 65
         {255} => reduce: 65
+        "&" => reduce: 65
         "%" => reduce: 65
         "c" => reduce: 65
         "b" => reduce: 65
         "!" => reduce: 65
-**** STATE 157 ****
+**** STATE 160 ****
     token ::= [#] `implements <%> // $
     token ::= [#] `implements <%> // token
     -----------------------
@@ -4736,33 +4968,35 @@
         "'" => reduce: 39
         "e" => reduce: 39
         {255} => reduce: 39
+        "&" => reduce: 39
         "%" => reduce: 39
         "c" => reduce: 39
         "b" => reduce: 39
         "!" => reduce: 39
-**** STATE 158 ****
+**** STATE 161 ****
     digit ::= {"0".."9"} !digit <!digit%> // $
     digit ::= {"0".."9"} !digit <!digit%> // token
     digit ::= {"0".."9"} !digit <!digit%> // white*
     -----------------------
-        $ => reduce: 113
-        "=" => reduce: 113
-        {"0".."9"} => reduce: 113
-        token => reduce: 113
-        {13} => reduce: 113
-        {9 12} => reduce: 113
-        "+" => reduce: 113
-        {10} => reduce: 113
-        white* => reduce: 113
-        "'" => reduce: 113
-        "e" => reduce: 113
-        {255} => reduce: 113
-        "%" => reduce: 113
-        "c" => reduce: 113
-        "b" => reduce: 113
-        "!" => reduce: 113
-        " " => reduce: 113
-**** STATE 159 ****
+        $ => reduce: 115
+        "=" => reduce: 115
+        {"0".."9"} => reduce: 115
+        token => reduce: 115
+        {13} => reduce: 115
+        {9 12} => reduce: 115
+        "+" => reduce: 115
+        {10} => reduce: 115
+        white* => reduce: 115
+        "'" => reduce: 115
+        "e" => reduce: 115
+        {255} => reduce: 115
+        "&" => reduce: 115
+        "%" => reduce: 115
+        "c" => reduce: 115
+        "b" => reduce: 115
+        "!" => reduce: 115
+        " " => reduce: 115
+**** STATE 162 ****
     token ::= [#] `void <%> // $
     token ::= [#] `void <%> // token
     -----------------------
@@ -4774,11 +5008,12 @@
         "'" => reduce: 8
         "e" => reduce: 8
         {255} => reduce: 8
+        "&" => reduce: 8
         "%" => reduce: 8
         "c" => reduce: 8
         "b" => reduce: 8
         "!" => reduce: 8
-**** STATE 160 ****
+**** STATE 163 ****
     token ::= [#] `transient <%> // $
     token ::= [#] `transient <%> // token
     -----------------------
@@ -4790,38 +5025,39 @@
         "'" => reduce: 55
         "e" => reduce: 55
         {255} => reduce: 55
+        "&" => reduce: 55
         "%" => reduce: 55
         "c" => reduce: 55
         "b" => reduce: 55
         "!" => reduce: 55
-**** STATE 161 ****
+**** STATE 164 ****
     `boolean ::= "b" "o" "o" "l" <%> "e" "a" "n" !idChar [white*] // $
     `boolean ::= "b" "o" "o" "l" <%> "e" "a" "n" !idChar [white*] // token
     `boolean ::= "b" "o" "o" "l" <%> "e" "a" "n" !idChar white* // $
     `boolean ::= "b" "o" "o" "l" <%> "e" "a" "n" !idChar white* // token
     -----------------------
         "e" => shift: 37
-**** STATE 162 ****
+**** STATE 165 ****
     eol ::= {13} <!!10%> {10} [registerNewline] // $
     eol ::= {13} <!!10%> {10} [registerNewline] // $$0
     eol ::= {13} <!!10%> {10} [registerNewline] // white
     -----------------------
-        {10} => shift: 136
-**** STATE 163 ****
+        {10} => shift: 139
+**** STATE 166 ****
     `else ::= "e" "l" <%> "s" "e" !idChar [white*] // $
     `else ::= "e" "l" <%> "s" "e" !idChar [white*] // token
     `else ::= "e" "l" <%> "s" "e" !idChar white* // $
     `else ::= "e" "l" <%> "s" "e" !idChar white* // token
     -----------------------
         "s" => shift: 9
-**** STATE 164 ****
+**** STATE 167 ****
     `class ::= "c" "l" <%> "a" "s" "s" !idChar [white*] // $
     `class ::= "c" "l" <%> "a" "s" "s" !idChar [white*] // token
     `class ::= "c" "l" <%> "a" "s" "s" !idChar white* // $
     `class ::= "c" "l" <%> "a" "s" "s" !idChar white* // token
     -----------------------
-        "a" => shift: 92
-**** STATE 165 ****
+        "a" => shift: 94
+**** STATE 168 ****
     token ::= [#] `false <%> // $
     token ::= [#] `false <%> // token
     -----------------------
@@ -4833,19 +5069,20 @@
         "'" => reduce: 16
         "e" => reduce: 16
         {255} => reduce: 16
+        "&" => reduce: 16
         "%" => reduce: 16
         "c" => reduce: 16
         "b" => reduce: 16
         "!" => reduce: 16
-**** STATE 166 ****
+**** STATE 169 ****
     digit ::= {"0".."9"} <%> // $NT
     -----------------------
-        $NT => reduce: 113
-**** STATE 167 ****
+        $NT => reduce: 115
+**** STATE 170 ****
     letter ::= {"A".."Z" "a".."z"} <%> // $NT
     -----------------------
-        $NT => reduce: 112
-**** STATE 168 ****
+        $NT => reduce: 114
+**** STATE 171 ****
     token ::= [#] `char <%> // $
     token ::= [#] `char <%> // token
     -----------------------
@@ -4857,11 +5094,12 @@
         "'" => reduce: 28
         "e" => reduce: 28
         {255} => reduce: 28
+        "&" => reduce: 28
         "%" => reduce: 28
         "c" => reduce: 28
         "b" => reduce: 28
         "!" => reduce: 28
-**** STATE 169 ****
+**** STATE 172 ****
     token ::= [#] `else <%> // $
     token ::= [#] `else <%> // token
     -----------------------
@@ -4873,11 +5111,12 @@
         "'" => reduce: 12
         "e" => reduce: 12
         {255} => reduce: 12
+        "&" => reduce: 12
         "%" => reduce: 12
         "c" => reduce: 12
         "b" => reduce: 12
         "!" => reduce: 12
-**** STATE 170 ****
+**** STATE 173 ****
     token ::= [#] `import <%> // $
     token ::= [#] `import <%> // token
     -----------------------
@@ -4889,12 +5128,13 @@
         "'" => reduce: 40
         "e" => reduce: 40
         {255} => reduce: 40
+        "&" => reduce: 40
         "%" => reduce: 40
         "c" => reduce: 40
         "b" => reduce: 40
         "!" => reduce: 40
-**** STATE 171 ****
+**** STATE 174 ****
     digit+ ::= digit <!!digit%> // digit
     -----------------------
-        digit => reduce: 200
-        {"0".."9"} => reduce: 200
+        digit => reduce: 201
+        {"0".."9"} => reduce: 201
