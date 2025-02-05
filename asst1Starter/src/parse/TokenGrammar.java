@@ -596,18 +596,18 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //     return s.toString();
     // }
 
-    //: dq ::= {34} => void
+    //: dq ::= '"' => void
+    //: string_helper ::= !'"' printable => pass
 
-    //: STRING_LITERAL ::= !{255} {255} => text
-    //dq printable* dq => 
-    // public String makeString(List<Character> printable) 
-    // {
-    //     String str = "";
-    //     for (char c:printable) {
-    //         str = str + printable;
-    //     }
-    //     return str;
-    // }
+    //: STRING_LITERAL ::= dq string_helper* dq => 
+    public String makeString(List<Character> printable) 
+    {
+        String str = "";
+        for (char c:printable) {
+            str = str + printable;
+        }
+        return str;
+    }
 
     //================================================================
     // character patterns -- "helper symbols"

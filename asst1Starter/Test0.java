@@ -7,6 +7,8 @@ class +
 )
 ('a')
 
+"string"
+
 // this is a comment
 
 
