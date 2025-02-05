@@ -524,6 +524,14 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: reserved ::= `instanceof
     //: `new ::= "new" !idChar white*
     //: reserved ::= `new
+    //: `abstract ::= !{255} {255} => void
+    //: `assert ::= !{255} {255} => void
+    //: `byte ::= !{255} {255} => void
+    //: `case ::= !{255} {255} => void
+    //: `catch ::= !{255} {255} => void
+    //: `char ::= !{255} {255} => void
+    //: `const ::= !{255} {255} => void
+    //: `continue ::= !{255} {255} => void
     
 
 
@@ -534,7 +542,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `= ::= "=" !"=" white*
     //: `% ::= "%" white*
     //: `&& ::= "&&" white*
-    //: `* ::= "*" white*
+    //: `* ::= "*" !"/" white*
     //: `( ::= "(" white*
     //: `) ::= ")" white*
     //: `{ ::= "{" white*
@@ -554,7 +562,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `; ::= ";" white*
     //: `++ ::= "++" white*
     //: `-- ::= "--" white*
-    //: `/ ::= "/" white*
+    //: `/ ::= "/" !"/" !"*" white*
 
     
 
@@ -581,6 +589,26 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
         return (int)printable;
     }
 
+    //: ID ::= !{255} {255} => text
+    //!reserved letter+ idChar* !idChar white* => 
+    // public List<Character> id(List<Character> s)
+    // {
+    //     return s.toString();
+    // }
+
+    //: dq ::= {34} => void
+
+    //: STRING_LITERAL ::= !{255} {255} => text
+    //dq printable* dq => 
+    // public String makeString(List<Character> printable) 
+    // {
+    //     String str = "";
+    //     for (char c:printable) {
+    //         str = str + printable;
+    //     }
+    //     return str;
+    // }
+
     //================================================================
     // character patterns -- "helper symbols"
     //================================================================
@@ -603,6 +631,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // whitespace
     //: white ::= {" " 9 12} // space or tab or form feed
     //: white ::= eol
+    //: white ::= "//" printable* eol
 
     // to handle the common end-of-line sequences on different types
     // of systems, we treat the sequence CR+LF as an end of line.
@@ -634,14 +663,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
      
     
 
-    //: `abstract ::= !{255} {255} => void
-    //: `assert ::= !{255} {255} => void
-    //: `byte ::= !{255} {255} => void
-    //: `case ::= !{255} {255} => void
-    //: `catch ::= !{255} {255} => void
-    //: `char ::= !{255} {255} => void
-    //: `const ::= !{255} {255} => void
-    //: `continue ::= !{255} {255} => void
+    
     //: `default ::= !{255} {255} => void
     //: `do ::= !{255} {255} => void
     //: `double ::= !{255} {255} => void
@@ -669,10 +691,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `transient ::= !{255} {255} => void
     //: `try ::= !{255} {255} => void
     //: `volatile ::= !{255} {255} => void
-    //: ID ::= !{255} {255} => text
-    //: STRING_LITERAL ::= !{255} {255} => text
-    //: CHARACTER_LITERAL ::= !{255} {255} => int return0(char)
     
-    public int return0(char dummy) { return 0; }
 
 }
