@@ -492,10 +492,14 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: reserved ::= `class
     //: `else ::= "else" !idChar white*
     //: reserved ::= `else
+    //: `boolean ::= "boolean" !idChar white*
+    //: reserved ::= `boolean
 
     //special-token characters
     //: `!= ::= "!=" white*
     //: `+ ::= "+" white*
+    //: `! ::= "!" !"=" white*
+    //: `= ::= "=" white*
 
     // a numeric literal
     //: INT_LITERAL ::= # digit++ white* =>
@@ -510,6 +514,14 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
             error(pos, new OutOfRangeError(s.toString()));
             return 0;
         }
+    }
+
+    //: sq ::= "'" => void
+
+    //: CHARACTER_LITERAL ::= sq printable sq =>
+    public int makeChar(char printable)
+    {
+        return (int)printable;
     }
 
     //================================================================
@@ -563,7 +575,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // dummy definition.
     ////////////////////////////////////////////////////////////////
     
-    //: `! ::= !{255} {255} => void
     //: `% ::= !{255} {255} => void
     //: `&& ::= !{255} {255} => void
     //: `* ::= !{255} {255} => void
@@ -572,7 +583,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `{ ::= !{255} {255} => void
     //: `} ::= !{255} {255} => void
     //: `- ::= !{255} {255} => void
-    //: `= ::= !{255} {255} => void
     //: `== ::= !{255} {255} => void
     //: `[ ::= !{255} {255} => void
     //: `] ::= !{255} {255} => void
@@ -588,7 +598,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `++ ::= !{255} {255} => void
     //: `-- ::= !{255} {255} => void
     //: `/ ::= !{255} {255} => void
-    //: `boolean ::= !{255} {255} => void
     //: `extends ::= !{255} {255} => void
     //: `void ::= !{255} {255} => void
     //: `int ::= !{255} {255} => void
